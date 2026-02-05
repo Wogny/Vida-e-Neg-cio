@@ -20,7 +20,7 @@ export function HeroSection() {
               Especialistas em seguros de vida e empresariais, oferecemos soluções personalizadas para garantir a tranquilidade da sua família e a continuidade do seu empreendimento.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="https://wa.me/5517992378821" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5517992378821?text=Ol%C3%A1%20Cleber!%20Vi%20o%20site%20da%20C%26C%20Vida%20e%20Neg%C3%B3cio%20e%20gostaria%20de%20conhecer%20melhor%20as%20solu%C3%A7%C3%B5es%20de%20prote%C3%A7%C3%A3o%20que%20voc%C3%AAs%20oferecem." target="_blank" rel="noopener noreferrer">
                 <Button className="btn-gold w-full sm:w-auto text-base h-12">
                   Fale Conosco no WhatsApp
                 </Button>
@@ -237,7 +237,7 @@ export function ComparativoSection() {
           </table>
         </div>
         <div className="text-center mt-12">
-          <a href="https://wa.me/5517992378821" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/5517992378821?text=Ol%C3%A1%20Cleber!%20Vi%20o%20site%20da%20C%26C%20Vida%20e%20Neg%C3%B3cio%20e%20gostaria%20de%20conhecer%20melhor%20as%20solu%C3%A7%C3%B5es%20de%20prote%C3%A7%C3%A3o%20que%20voc%C3%AAs%20oferecem." target="_blank" rel="noopener noreferrer">
             <Button className="btn-gold text-base h-12">
               Conheça Nossas Soluções
             </Button>
@@ -495,7 +495,7 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Contato</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="https://wa.me/5517992378821" target="_blank" rel="noopener noreferrer" className="text-secondary-foreground/70 hover:text-primary transition">
+                <a href="https://wa.me/5517992378821?text=Ol%C3%A1%20Cleber!%20Vi%20o%20site%20da%20C%26C%20Vida%20e%20Neg%C3%B3cio%20e%20gostaria%20de%20conhecer%20melhor%20as%20solu%C3%A7%C3%B5es%20de%20prote%C3%A7%C3%A3o%20que%20voc%C3%AAs%20oferecem." target="_blank" rel="noopener noreferrer" className="text-secondary-foreground/70 hover:text-primary transition">
                   WhatsApp: (17) 99237-8821
                 </a>
               </li>
