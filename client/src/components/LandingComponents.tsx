@@ -8,8 +8,15 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-primary/20">
       <div className="container py-4 flex justify-between items-center">
-        <div className="text-xl font-bold text-primary tracking-tighter">
-          C&C VIDA E NEGÓCIO
+        <div className="flex items-center gap-3">
+          <img 
+            src="/assets/logo-no-bg.png" 
+            alt="C&C Vida e Negócio Logo" 
+            className="h-10 w-auto"
+          />
+          <div className="text-xl font-bold text-primary tracking-tighter">
+            C&C VIDA E NEGÓCIO
+          </div>
         </div>
         <div className="flex items-center gap-6">
           <nav className="hidden md:flex gap-6 text-sm font-medium">
@@ -18,11 +25,6 @@ export function Header() {
             <a href="#comparativo" className="hover:text-primary transition">Soluções</a>
             <a href="#faq" className="hover:text-primary transition">FAQ</a>
           </nav>
-          <img 
-            src="/assets/logo.jpg" 
-            alt="C&C Vida e Negócio Logo" 
-            className="h-12 w-auto rounded-md border border-primary/30"
-          />
         </div>
       </div>
     </header>
@@ -84,7 +86,7 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-75 group-hover:scale-90 transition-transform duration-500" />
             <div className="relative bg-gradient-to-br from-neutral-900 to-black border border-primary/20 rounded-2xl p-8 h-[450px] flex flex-col items-center justify-center text-center shadow-2xl overflow-hidden">
                <img 
-                src="/assets/logo.jpg" 
+                src="/assets/logo-no-bg.png" 
                 alt="C&C Vida e Negócio" 
                 className="w-64 h-auto mb-6 drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]"
               />
@@ -137,7 +139,7 @@ export function ApresentacaoSection() {
             <div className="absolute -inset-4 bg-primary/10 blur-xl rounded-full" />
             <div className="relative aspect-square bg-neutral-900 rounded-2xl border border-primary/20 flex items-center justify-center p-12 overflow-hidden">
                <img 
-                src="/assets/logo.jpg" 
+                src="/assets/logo-no-bg.png" 
                 alt="Logo C&C" 
                 className="w-full h-auto opacity-80 grayscale hover:grayscale-0 transition-all duration-700"
               />
