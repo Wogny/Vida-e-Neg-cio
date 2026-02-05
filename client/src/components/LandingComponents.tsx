@@ -478,7 +478,7 @@ Vi seu site e gostaria de uma consultoria.`;
 /* Footer Component */
 export function Footer() {
   return (
-    <footer className="bg-black pt-20 pb-10 border-t border-primary/10">
+    <footer className="bg-black pt-20 pb-6 border-t border-primary/10">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2 space-y-6">
