@@ -13,7 +13,7 @@ export function HeroSection() {
             <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">
               PROTEÇÃO FAMILIAR
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight" style={{ fontFamily: "Playfair Display" }}>
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
               Proteja o que mais importa: Sua Vida e Seu Negócio
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed">
@@ -48,7 +48,7 @@ export function HeroSection() {
           </div>
           <div className="bg-gradient-to-br from-primary/20 to-orange-100 rounded-2xl h-96 flex items-center justify-center">
             <div className="text-center">
-              <div className="text-6xl font-bold text-primary/30" style={{ fontFamily: "Playfair Display" }}>
+              <div className="text-6xl font-bold text-primary/30">
                 C&C
               </div>
               <p className="text-gray-500 mt-2">Imagem do Corretor</p>
@@ -72,13 +72,13 @@ export function StatsSection() {
   return (
     <section id="stats" className="section-dark py-16 md:py-24">
       <div className="container">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12" style={{ fontFamily: "Playfair Display" }}>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Nossos Números Falam por Nós
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {stats.map((stat, idx) => (
             <Card key={idx} className="bg-secondary/50 border-0 p-6 text-center">
-              <div className="text-4xl font-bold text-primary mb-2" style={{ fontFamily: "Playfair Display" }}>
+              <div className="text-4xl font-bold text-primary mb-2">
                 {stat.value}
               </div>
               <p className="text-secondary-foreground">{stat.label}</p>
@@ -98,14 +98,14 @@ export function ApresentacaoSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="bg-primary/10 rounded-2xl h-96 flex items-center justify-center">
             <div className="text-center">
-              <div className="text-6xl font-bold text-primary/30" style={{ fontFamily: "Playfair Display" }}>
+              <div className="text-6xl font-bold text-primary/30">
                 CR
               </div>
               <p className="text-gray-500 mt-2">Foto do Cleber</p>
             </div>
           </div>
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: "Playfair Display" }}>
+            <h2 className="text-3xl md:text-4xl font-bold">
               Quem é C&C Vida e Negócio
             </h2>
             <p className="text-gray-600 leading-relaxed">
@@ -165,7 +165,7 @@ export function DepoimentosSection() {
   return (
     <section id="depoimentos" className="section-dark py-16 md:py-24">
       <div className="container">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12" style={{ fontFamily: "Playfair Display" }}>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           O que Nossos Clientes Dizem
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -203,7 +203,7 @@ export function ComparativoSection() {
   return (
     <section id="comparativo" className="section-light py-16 md:py-24">
       <div className="container">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12" style={{ fontFamily: "Playfair Display" }}>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Por Que Escolher C&C Vida e Negócio?
         </h2>
         <div className="overflow-x-auto">
@@ -271,14 +271,14 @@ export function ComoFuncionaSection() {
   return (
     <section id="como-funciona" className="section-dark py-16 md:py-24">
       <div className="container">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12" style={{ fontFamily: "Playfair Display" }}>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Sua Proteção em 3 Passos Simples
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, idx) => (
             <div key={idx} className="relative">
               <div className="bg-primary/10 rounded-2xl p-8">
-                <div className="text-5xl font-bold text-primary/30 mb-4" style={{ fontFamily: "Playfair Display" }}>
+                <div className="text-5xl font-bold text-primary/30 mb-4">
                   {step.number}
                 </div>
                 <h3 className="text-xl font-bold mb-3">{step.title}</h3>
@@ -329,7 +329,7 @@ export function FAQSection() {
   return (
     <section id="faq" className="section-light py-16 md:py-24">
       <div className="container max-w-3xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12" style={{ fontFamily: "Playfair Display" }}>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Dúvidas Frequentes
         </h2>
         <div className="space-y-4">
@@ -387,7 +387,7 @@ export function FormularioSection() {
   return (
     <section id="formulario" className="bg-gradient-to-b from-background to-gray-100 py-16 md:py-24">
       <div className="container max-w-3xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ fontFamily: "Playfair Display" }}>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
           Receba Sua Cotação Personalizada
         </h2>
         <p className="text-center text-gray-700 text-lg mb-12">
