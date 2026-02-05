@@ -307,15 +307,15 @@ export function ComoFuncionaSection() {
     <section id="como-funciona" className="bg-black py-20 md:py-32">
       <div className="container">
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-20">Processo <span className="text-accent-gold">Simples e Seguro</span></h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, i) => (
-            <div key={i} className="relative group">
-              <div className="text-8xl font-black text-primary/10 absolute -top-12 -left-4 group-hover:text-primary/20 transition-colors">
+            <div key={i} className="bg-neutral-900 border border-primary/20 rounded-xl p-8 flex items-start gap-6 hover:border-primary/50 transition-all group">
+              <div className="text-4xl font-black text-primary/40 group-hover:text-primary transition-colors shrink-0 pt-1">
                 {step.number}
               </div>
-              <div className="relative z-10 space-y-4">
-                <h3 className="text-2xl font-bold text-white">{step.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{step.description}</p>
+              <div className="space-y-3">
+                <h3 className="text-xl font-bold text-white">{step.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
               </div>
             </div>
           ))}
