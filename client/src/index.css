@@ -44,75 +44,36 @@
 
 :root {
   /* Design: C&C Vida e Negócio - Luxury Gold & Dark Theme */
-  /* Primary: Dourado Metálico (D4AF37) */
-  --primary: oklch(0.72 0.15 55);
-  --primary-foreground: oklch(0.12 0.01 0);
-  --sidebar-primary: oklch(0.68 0.16 55);
-  --sidebar-primary-foreground: oklch(0.12 0.01 0);
-  --chart-1: oklch(0.75 0.14 55);
-  --chart-2: oklch(0.72 0.15 55);
-  --chart-3: oklch(0.68 0.16 55);
-  --chart-4: oklch(0.65 0.17 55);
-  --chart-5: oklch(0.60 0.18 55);
-  --radius: 0.5rem;
-  --background: oklch(0.98 0 0);
-  --foreground: oklch(0.12 0.01 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.12 0.01 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.12 0.01 0);
-  --secondary: oklch(0.15 0.01 0);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.88 0.01 0);
-  --muted-foreground: oklch(0.45 0.01 0);
-  --accent: oklch(0.72 0.15 55);
-  --accent-foreground: oklch(0.12 0.01 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.72 0.15 55);
-  --sidebar: oklch(0.98 0 0);
-  --sidebar-foreground: oklch(0.12 0.01 0);
-  --sidebar-accent: oklch(0.72 0.15 55);
-  --sidebar-accent-foreground: oklch(0.12 0.01 0);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.72 0.15 55);
-}
-
-.dark {
-  --primary: oklch(0.72 0.15 55);
-  --primary-foreground: oklch(0.12 0.01 0);
-  --sidebar-primary: oklch(0.68 0.16 55);
-  --sidebar-primary-foreground: oklch(0.12 0.01 0);
-  --background: oklch(0.12 0.01 0);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.18 0.01 0);
+  /* Primary: Dourado Metálico (D4AF37) -> oklch(0.75 0.15 70) */
+  --primary: oklch(0.75 0.15 70);
+  --primary-foreground: oklch(0.1 0 0);
+  
+  --background: oklch(0.1 0 0); /* Preto profundo */
+  --foreground: oklch(0.98 0 0); /* Branco quebrado */
+  
+  --card: oklch(0.15 0 0);
   --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.18 0.01 0);
+  
+  --popover: oklch(0.15 0 0);
   --popover-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.25 0.01 0);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.35 0.01 0);
-  --muted-foreground: oklch(0.75 0.01 0);
-  --accent: oklch(0.72 0.15 55);
-  --accent-foreground: oklch(0.12 0.01 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.72 0.15 55);
-  --chart-1: oklch(0.75 0.14 55);
-  --chart-2: oklch(0.72 0.15 55);
-  --chart-3: oklch(0.68 0.16 55);
-  --chart-4: oklch(0.65 0.17 55);
-  --chart-5: oklch(0.60 0.18 55);
-  --sidebar: oklch(0.18 0.01 0);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.72 0.15 55);
-  --sidebar-accent-foreground: oklch(0.12 0.01 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.72 0.15 55);
+  
+  --secondary: oklch(0.2 0 0);
+  --secondary-foreground: oklch(0.75 0.15 70); /* Dourado */
+  
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  
+  --accent: oklch(0.75 0.15 70);
+  --accent-foreground: oklch(0.1 0 0);
+  
+  --destructive: oklch(0.5 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  
+  --border: oklch(0.25 0 0);
+  --input: oklch(0.25 0 0);
+  --ring: oklch(0.75 0.15 70);
+  
+  --radius: 0.5rem;
 }
 
 @layer base {
@@ -122,87 +83,47 @@
   body {
     @apply bg-background text-foreground;
   }
-  button:not(:disabled),
-  [role="button"]:not([aria-disabled="true"]),
-  [type="button"]:not(:disabled),
-  [type="submit"]:not(:disabled),
-  [type="reset"]:not(:disabled),
-  a[href],
-  select:not(:disabled),
-  input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
-    @apply cursor-pointer;
-  }
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
-  }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
-
-  @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
-      padding-right: 1.5rem;
-    }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1280px;
     }
   }
 
-  /* Design System: Luxury Gold Theme */
   .btn-gold {
-    @apply bg-primary text-primary-foreground transition-all duration-300 font-semibold;
-  }
-
-  .btn-gold:hover {
-    opacity: 0.9;
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #B8860B 100%);
+    @apply text-black transition-all duration-300 font-bold shadow-lg hover:scale-105 hover:shadow-primary/20;
+    border: none;
   }
 
   .section-dark {
-    @apply bg-secondary text-secondary-foreground;
+    @apply bg-black text-white;
   }
 
   .section-light {
-    @apply bg-background text-foreground;
+    @apply bg-[#0a0a0a] text-white;
   }
 
   .text-accent-gold {
     @apply text-primary;
+    background: linear-gradient(to right, #D4AF37, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .border-accent-gold {
     @apply border-primary;
-  }
-
-  .gradient-gold {
-    background: linear-gradient(to right, var(--primary), #FF9500);
   }
 }
