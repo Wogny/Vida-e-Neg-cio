@@ -83,16 +83,29 @@ export function HeroSection() {
             </div>
           </div>
           <div className="relative group">
-            <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-75 group-hover:scale-90 transition-transform duration-500" />
-            <div className="relative bg-gradient-to-br from-neutral-900 to-black border border-primary/20 rounded-2xl p-8 h-[450px] flex flex-col items-center justify-center text-center shadow-2xl overflow-hidden">
-               <img 
-                src="/assets/logo-no-bg.png" 
-                alt="C&C Vida e Negócio" 
-                className="w-64 h-auto mb-6 drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+            {/* Efeito de brilho ao fundo */}
+            <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full scale-75 group-hover:scale-100 transition-transform duration-700 pointer-events-none" />
+            
+            <div className="relative aspect-[4/5] md:aspect-square overflow-hidden rounded-2xl border border-primary/20 shadow-2xl bg-neutral-900 group-hover:border-primary/40 transition-colors duration-500">
+              <img 
+                src="/assets/familia-cleber.png" 
+                alt="Cleber e Família - C&C Vida e Negócio" 
+                className="w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700"
               />
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold text-white">C&C Vida e Negócio</h3>
-                <p className="text-primary font-medium tracking-widest uppercase text-xs">Excelência em Proteção</p>
+              {/* Overlay gradiente para elegância */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+              
+              {/* Selo de Confiança sobre a imagem */}
+              <div className="absolute bottom-6 left-6 right-6 p-4 bg-black/60 backdrop-blur-md border border-primary/20 rounded-xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
+                    <Check className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-sm">Proteção Real</p>
+                    <p className="text-primary text-xs uppercase tracking-widest font-medium">Para sua família</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
