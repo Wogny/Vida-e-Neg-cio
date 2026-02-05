@@ -31,7 +31,6 @@ export default function Home() {
     <div className="bg-background">
       <Header />
       <HeroSection />
-      <StatsSection />
       <ApresentacaoSection />
       <DepoimentosSection />
       <ComparativoSection />
