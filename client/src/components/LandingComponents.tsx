@@ -95,18 +95,7 @@ export function HeroSection() {
               {/* Overlay gradiente para elegância */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
               
-              {/* Selo de Confiança sobre a imagem */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 bg-black/60 backdrop-blur-md border border-primary/20 rounded-xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
-                    <Check className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-white font-bold text-sm">Proteção Real</p>
-                    <p className="text-primary text-xs uppercase tracking-widest font-medium">Para sua família</p>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
