@@ -395,8 +395,8 @@ Vi seu site e gostaria de uma consultoria.`;
   };
 
   return (
-    <section id="formulario" className="bg-black py-20 md:py-32 relative">
-       <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full translate-y-1/2 pointer-events-none" />
+    <section id="formulario" className="bg-black pt-20 pb-10 md:pt-32 md:pb-16 relative">
+       <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full pointer-events-none" />
       <div className="container relative z-10">
         <div className="max-w-3xl mx-auto bg-neutral-900 border border-primary/20 rounded-3xl overflow-hidden shadow-2xl">
           <div className="p-8 md:p-12 bg-primary/10 text-center border-b border-primary/10">
@@ -478,7 +478,7 @@ Vi seu site e gostaria de uma consultoria.`;
 /* Footer Component */
 export function Footer() {
   return (
-    <footer className="bg-black pt-20 pb-6 border-t border-primary/10">
+    <footer className="bg-black pt-16 pb-8 border-t border-primary/10">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2 space-y-6">
