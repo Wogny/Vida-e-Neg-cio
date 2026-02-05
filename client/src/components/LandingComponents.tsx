@@ -135,13 +135,13 @@ export function ApresentacaoSection() {
     <section id="apresentacao" className="section-light py-20 md:py-32">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="order-2 md:order-1 relative">
+          <div className="order-2 md:order-1 relative flex justify-center">
             <div className="absolute -inset-4 bg-primary/10 blur-xl rounded-full" />
-            <div className="relative aspect-square bg-neutral-900 rounded-2xl border border-primary/20 flex items-center justify-center p-12 overflow-hidden">
+            <div className="relative w-full max-w-[320px] aspect-square bg-neutral-900 rounded-2xl border border-primary/20 flex items-center justify-center p-8 overflow-hidden shadow-2xl">
                <img 
                 src="/assets/logo-no-bg.png" 
                 alt="Logo C&C" 
-                className="w-48 h-auto opacity-100 transition-all duration-700"
+                className="w-40 h-auto opacity-100 transition-all duration-700"
               />
             </div>
           </div>
