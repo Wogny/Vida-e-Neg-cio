@@ -1,25 +1,42 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
+import {
+  HeroSection,
+  StatsSection,
+  ApresentacaoSection,
+  DepoimentosSection,
+  ComparativoSection,
+  ComoFuncionaSection,
+  FAQSection,
+  FormularioSection,
+  Footer,
+} from "@/components/LandingComponents";
 
 /**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
+ * C&C Vida e Negócio - Landing Page
+ * Design: Luxury Gold Theme with Dark Accents
+ * 
+ * Seções:
+ * 1. Hero Section - Headline forte e CTAs principais
+ * 2. Stats Section - Números animados de impacto
+ * 3. Apresentação - Quem é C&C e diferencial
+ * 4. Depoimentos - 3 cards com 5 estrelas
+ * 5. Comparativo - C&C vs Seguradoras Tradicionais
+ * 6. Como Funciona - 3 passos simples
+ * 7. FAQ - Dúvidas frequentes
+ * 8. Formulário - Contato via WhatsApp
+ * Footer - Informações legais e contato
  */
 export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
+    <div className="min-h-screen bg-background">
+      <HeroSection />
+      <StatsSection />
+      <ApresentacaoSection />
+      <DepoimentosSection />
+      <ComparativoSection />
+      <ComoFuncionaSection />
+      <FAQSection />
+      <FormularioSection />
+      <Footer />
     </div>
   );
 }
