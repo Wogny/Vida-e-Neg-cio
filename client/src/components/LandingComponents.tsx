@@ -131,43 +131,38 @@ export function StatsSection() {
 
 /* Apresentação Section */
 export function ApresentacaoSection() {
+  const differentials = [
+    { title: "Consultoria Especializada", description: "Atendimento individualizado para entender seu momento de vida." },
+    { title: "Análise Criteriosa", description: "Estudo detalhado de riscos para garantir as melhores coberturas." },
+    { title: "Suporte Total", description: "Acompanhamento completo e humanizado em momentos de sinistro." },
+    { title: "Parceria Global", description: "Conexão direta com as maiores e mais sólidas seguradoras do mundo." }
+  ];
+
   return (
     <section id="apresentacao" className="section-light py-20 md:py-32">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="order-2 md:order-1 relative flex justify-center">
-            <div className="absolute -inset-4 bg-primary/10 blur-xl rounded-full" />
-            <div className="relative w-full max-w-[320px] aspect-square bg-neutral-900 rounded-2xl border border-primary/20 flex items-center justify-center p-8 overflow-hidden shadow-2xl">
-               <img 
-                src="/assets/logo-no-bg.png" 
-                alt="Logo C&C" 
-                className="w-40 h-auto opacity-100 transition-all duration-700"
-              />
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+            Sua tranquilidade é o nosso <br/>
+            <span className="text-accent-gold">maior compromisso.</span>
+          </h2>
+          <p className="text-lg text-gray-400 leading-relaxed">
+            A C&C Vida e Negócio nasceu para oferecer um atendimento verdadeiramente consultivo. Construímos estratégias de proteção sólidas para o seu patrimônio e para quem você ama.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {differentials.map((item, i) => (
+            <div key={i} className="bg-neutral-900/50 border border-primary/10 rounded-2xl p-8 hover:border-primary/40 transition-all group flex items-start gap-6">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20 shrink-0 group-hover:bg-primary/20 transition-colors">
+                <Check className="w-6 h-6 text-primary" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">{item.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+              </div>
             </div>
-          </div>
-          <div className="order-1 md:order-2 space-y-8">
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight">
-              Sua tranquilidade é o nosso <span className="text-accent-gold">maior compromisso.</span>
-            </h2>
-            <p className="text-lg text-gray-400 leading-relaxed">
-              A C&C Vida e Negócio nasceu da necessidade de oferecer um atendimento verdadeiramente consultivo no mercado de seguros. Não vendemos apenas apólices; construímos estratégias de proteção para o seu patrimônio e para as pessoas que você ama.
-            </p>
-            <div className="space-y-4">
-              {[
-                "Consultoria especializada e individualizada",
-                "Análise criteriosa de riscos e coberturas",
-                "Suporte total em momentos de sinistro",
-                "Parceria com as maiores seguradoras do mundo"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center border border-primary/40">
-                    <Check className="w-3 h-3 text-primary" />
-                  </div>
-                  <span className="text-gray-300 font-medium">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
