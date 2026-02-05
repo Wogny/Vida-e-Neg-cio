@@ -379,11 +379,18 @@ export function FAQSection() {
 export function FormularioSection() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [type, setType] = useState("Vida");
+  const [type, setType] = useState("Seguro de Vida");
+  const [profile, setProfile] = useState("");
+  const [messageText, setMessageText] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Olá Cleber! Meu nome é ${name}. Gostaria de uma cotação de Seguro de ${type}. Meu telefone é ${phone}.`;
+    const message = `Olá Cleber! Me chamo ${name}.
+Gostaria de uma cotação para: ${type}.
+Meu perfil/necessidade: ${profile || 'Não informado'}.
+Informações adicionais: ${messageText || 'Nenhuma'}.
+Meu WhatsApp: ${phone}.
+Vi seu site e gostaria de uma consultoria.`;
     window.open(`https://wa.me/5517992378821?text=${encodeURIComponent(message)}`, "_blank");
   };
 
@@ -391,28 +398,28 @@ export function FormularioSection() {
     <section id="formulario" className="bg-black py-20 md:py-32 relative">
        <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full translate-y-1/2 pointer-events-none" />
       <div className="container relative z-10">
-        <div className="max-w-4xl mx-auto bg-neutral-900 border border-primary/20 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
-          <div className="md:w-1/2 p-12 bg-primary/10 flex flex-col justify-center space-y-6">
-            <h2 className="text-3xl font-bold">Solicite sua <br/><span className="text-accent-gold text-4xl">Consultoria Gratuita</span></h2>
-            <p className="text-gray-400">Preencha os dados e entraremos em contato para desenhar a melhor estratégia de proteção para você.</p>
+        <div className="max-w-5xl mx-auto bg-neutral-900 border border-primary/20 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
+          <div className="md:w-2/5 p-12 bg-primary/10 flex flex-col justify-center space-y-6">
+            <h2 className="text-3xl font-bold">Solicite sua <br/><span className="text-accent-gold text-4xl">Consultoria Especializada</span></h2>
+            <p className="text-gray-400">Quanto mais detalhes você fornecer, melhor o Cleber poderá preparar uma solução personalizada para o seu caso.</p>
             <div className="space-y-4 pt-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-primary border border-primary/30 font-bold">1</div>
-                <span className="text-sm font-medium">Preencha o formulário</span>
+                <span className="text-sm font-medium">Dados de Contato</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-primary border border-primary/30 font-bold">2</div>
-                <span className="text-sm font-medium">Analisamos seu perfil</span>
+                <span className="text-sm font-medium">Seu Perfil</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-primary border border-primary/30 font-bold">3</div>
-                <span className="text-sm font-medium">Receba sua proposta</span>
+                <span className="text-sm font-medium">Análise e Proposta</span>
               </div>
             </div>
           </div>
-          <div className="md:w-1/2 p-12 bg-neutral-900">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
+          <div className="md:w-3/5 p-12 bg-neutral-900">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2 col-span-1 md:col-span-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Nome Completo</label>
                 <input
                   required
@@ -435,7 +442,7 @@ export function FormularioSection() {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Interesse</label>
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Tipo de Seguro</label>
                 <select
                   value={type}
                   onChange={(e) => setType(e.target.value)}
@@ -443,13 +450,36 @@ export function FormularioSection() {
                 >
                   <option>Seguro de Vida</option>
                   <option>Seguro Empresarial</option>
+                  <option>Seguro Residencial</option>
                   <option>Previdência Privada</option>
                   <option>Outros</option>
                 </select>
               </div>
-              <Button type="submit" className="btn-gold w-full h-14 text-lg">
-                Enviar Solicitação
-              </Button>
+              <div className="space-y-2 col-span-1 md:col-span-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Seu Perfil (Ocupação / Empresa)</label>
+                <input
+                  type="text"
+                  value={profile}
+                  onChange={(e) => setProfile(e.target.value)}
+                  className="w-full bg-black border border-primary/20 rounded-lg p-4 focus:border-primary outline-none transition-colors"
+                  placeholder="Ex: Profissional Liberal / Sócio de Indústria"
+                />
+              </div>
+              <div className="space-y-2 col-span-1 md:col-span-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">O que você busca proteger?</label>
+                <textarea
+                  value={messageText}
+                  onChange={(e) => setMessageText(e.target.value)}
+                  rows={3}
+                  className="w-full bg-black border border-primary/20 rounded-lg p-4 focus:border-primary outline-none transition-colors resize-none"
+                  placeholder="Conte um pouco sobre sua necessidade..."
+                />
+              </div>
+              <div className="col-span-1 md:col-span-2">
+                <Button type="submit" className="btn-gold w-full h-14 text-lg">
+                  Enviar Solicitação via WhatsApp
+                </Button>
+              </div>
             </form>
           </div>
         </div>
