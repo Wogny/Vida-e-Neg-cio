@@ -141,7 +141,7 @@ export function ApresentacaoSection() {
                <img 
                 src="/assets/logo-no-bg.png" 
                 alt="Logo C&C" 
-                className="w-full h-auto opacity-80 grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-48 h-auto opacity-100 transition-all duration-700"
               />
             </div>
           </div>
