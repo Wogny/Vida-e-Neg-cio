@@ -385,83 +385,83 @@ export function FormularioSection() {
   };
 
   return (
-    <section id="formulario" className="section-dark py-16 md:py-24">
-      <div className="container max-w-2xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ fontFamily: "Playfair Display" }}>
+    <section id="formulario" className="bg-gradient-to-b from-background to-gray-100 py-16 md:py-24">
+      <div className="container max-w-3xl">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ fontFamily: "Playfair Display" }}>
           Receba Sua Cotação Personalizada
         </h2>
-        <p className="text-center text-secondary-foreground mb-12">
-          Preencha o formulário abaixo e um de nossos especialistas entrará em contato em breve.
+        <p className="text-center text-gray-700 text-lg mb-12">
+          Preencha o formulário abaixo e um de nossos especialistas entrará em contato em breve para oferecer a melhor solução.
         </p>
-        <Card className="bg-secondary/50 border-0 p-8">
+        <Card className="bg-white border-4 border-primary shadow-2xl p-10">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-semibold mb-2">Nome Completo *</label>
+              <label className="block text-base font-bold mb-3 text-gray-900">Nome Completo *</label>
               <input
                 type="text"
                 name="nome"
                 value={formData.nome}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg bg-secondary/30 border border-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Seu nome"
+                className="w-full px-5 py-4 rounded-lg bg-white border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-base"
+                placeholder="Digite seu nome completo"
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-semibold mb-2">Idade *</label>
+                <label className="block text-base font-bold mb-3 text-gray-900">Idade *</label>
                 <input
                   type="number"
                   name="idade"
                   value={formData.idade}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-secondary/30 border border-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-5 py-4 rounded-lg bg-white border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-base"
                   placeholder="Ex: 35"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold mb-2">Renda Mensal (R$) *</label>
+                <label className="block text-base font-bold mb-3 text-gray-900">Renda Mensal (R$) *</label>
                 <input
                   type="text"
                   name="renda"
                   value={formData.renda}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-secondary/30 border border-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-5 py-4 rounded-lg bg-white border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-base"
                   placeholder="Ex: 5000"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-2">Número de Filhos</label>
+              <label className="block text-base font-bold mb-3 text-gray-900">Número de Filhos</label>
               <input
                 type="number"
                 name="filhos"
                 value={formData.filhos}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg bg-secondary/30 border border-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full px-5 py-4 rounded-lg bg-white border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-base"
                 placeholder="Ex: 2"
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-2">Histórico de Doenças Graves</label>
+              <label className="block text-base font-bold mb-3 text-gray-900">Histórico de Doenças Graves</label>
               <textarea
                 name="doencas"
                 value={formData.doencas}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg bg-secondary/30 border border-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Descreva se houver"
-                rows={3}
+                className="w-full px-5 py-4 rounded-lg bg-white border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-base"
+                placeholder="Descreva se houver alguma condição importante"
+                rows={4}
               />
             </div>
-            <div className="flex gap-4 pt-4">
-              <Button type="submit" className="btn-gold flex-1 text-base h-12">
-                Enviar via WhatsApp
+            <div className="flex gap-4 pt-6">
+              <Button type="submit" className="btn-gold flex-1 text-lg h-14 font-bold">
+                ✓ Enviar via WhatsApp
               </Button>
             </div>
-            <p className="text-xs text-secondary-foreground/70 text-center">
-              Seus dados serão utilizados apenas para gerar sua cotação personalizada, conforme a LGPD.
+            <p className="text-sm text-gray-600 text-center mt-6">
+              ✓ Seus dados serão utilizados apenas para gerar sua cotação personalizada, conforme a LGPD.
             </p>
           </form>
         </Card>
