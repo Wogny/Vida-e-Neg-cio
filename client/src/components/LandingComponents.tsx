@@ -379,16 +379,16 @@ export function FAQSection() {
 export function FormularioSection() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [type, setType] = useState("Seguro de Vida");
   const [profile, setProfile] = useState("");
-  const [messageText, setMessageText] = useState("");
+  const [healthHistory, setHealthHistory] = useState("");
+  const [needs, setNeeds] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const message = `Olá Cleber! Me chamo ${name}.
-Gostaria de uma cotação para: ${type}.
-Meu perfil/necessidade: ${profile || 'Não informado'}.
-Informações adicionais: ${messageText || 'Nenhuma'}.
+Meu perfil/ocupação: ${profile || 'Não informado'}.
+Histórico de doenças: ${healthHistory || 'Não informado'}.
+O que procuro/necessito: ${needs || 'Não informado'}.
 Meu WhatsApp: ${phone}.
 Vi seu site e gostaria de uma consultoria.`;
     window.open(`https://wa.me/5517992378821?text=${encodeURIComponent(message)}`, "_blank");
@@ -442,20 +442,6 @@ Vi seu site e gostaria de uma consultoria.`;
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Tipo de Seguro</label>
-                <select
-                  value={type}
-                  onChange={(e) => setType(e.target.value)}
-                  className="w-full bg-black border border-primary/20 rounded-lg p-4 focus:border-primary outline-none transition-colors appearance-none"
-                >
-                  <option>Seguro de Vida</option>
-                  <option>Seguro Empresarial</option>
-                  <option>Seguro Residencial</option>
-                  <option>Previdência Privada</option>
-                  <option>Outros</option>
-                </select>
-              </div>
-              <div className="space-y-2 col-span-1 md:col-span-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Seu Perfil (Ocupação / Empresa)</label>
                 <input
                   type="text"
@@ -466,13 +452,24 @@ Vi seu site e gostaria de uma consultoria.`;
                 />
               </div>
               <div className="space-y-2 col-span-1 md:col-span-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">O que você busca proteger?</label>
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Histórico de Doenças</label>
                 <textarea
-                  value={messageText}
-                  onChange={(e) => setMessageText(e.target.value)}
+                  value={healthHistory}
+                  onChange={(e) => setHealthHistory(e.target.value)}
+                  rows={2}
+                  className="w-full bg-black border border-primary/20 rounded-lg p-4 focus:border-primary outline-none transition-colors resize-none"
+                  placeholder="Informe se possui algum histórico relevante..."
+                />
+              </div>
+              <div className="space-y-2 col-span-1 md:col-span-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">O que você procura ou necessita?</label>
+                <textarea
+                  required
+                  value={needs}
+                  onChange={(e) => setNeeds(e.target.value)}
                   rows={3}
                   className="w-full bg-black border border-primary/20 rounded-lg p-4 focus:border-primary outline-none transition-colors resize-none"
-                  placeholder="Conte um pouco sobre sua necessidade..."
+                  placeholder="Explique detalhadamente sua necessidade..."
                 />
               </div>
               <div className="col-span-1 md:col-span-2">
