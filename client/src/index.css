@@ -127,3 +127,7 @@
     @apply border-primary;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
