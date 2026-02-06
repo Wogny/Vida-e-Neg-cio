@@ -7,14 +7,14 @@ import { useState } from "react";
 export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-primary/20">
-      <div className="container py-4 flex justify-between items-center">
-        <div className="flex items-center gap-3">
+      <div className="container py-3 flex justify-between items-center">
+        <div className="flex items-center gap-4">
           <img 
             src="/assets/logo-no-bg.png" 
             alt="C&C Vida e Negócio Logo" 
-            className="h-14 w-auto"
+            className="h-20 w-auto"
           />
-          <div className="text-2xl font-bold text-primary tracking-tighter">
+          <div className="text-3xl font-bold text-primary tracking-tighter">
             C&C VIDA E NEGÓCIO
           </div>
         </div>
