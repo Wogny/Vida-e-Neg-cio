@@ -79,9 +79,11 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    font-family: 'Times New Roman', Times, serif;
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Times New Roman', Times, serif;
   }
 }
 
