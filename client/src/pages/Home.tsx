@@ -9,6 +9,7 @@ import {
   FormularioSection,
   Footer,
   Header,
+  FloatingWhatsAppButton,
 } from "@/components/LandingComponents";
 
 /**
@@ -40,6 +41,7 @@ export default function Home() {
         <FormularioSection />
       </main>
       <Footer />
+      <FloatingWhatsAppButton />
     </div>
   );
 }
