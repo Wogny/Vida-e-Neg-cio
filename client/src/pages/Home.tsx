@@ -30,13 +30,15 @@ export default function Home() {
   return (
     <div className="bg-background">
       <Header />
-      <HeroSection />
-      <ApresentacaoSection />
-      <DepoimentosSection />
-      <ComparativoSection />
-      <ComoFuncionaSection />
-      <FAQSection />
-      <FormularioSection />
+      <main>
+        <HeroSection />
+        <ApresentacaoSection />
+        <DepoimentosSection />
+        <ComparativoSection />
+        <ComoFuncionaSection />
+        <FAQSection />
+        <FormularioSection />
+      </main>
       <Footer />
     </div>
   );

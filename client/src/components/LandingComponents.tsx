@@ -9,11 +9,16 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-primary/20">
       <div className="container py-4 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <img 
-            src="/assets/logo-no-bg.png" 
-            alt="C&C Vida e Negócio Logo" 
-            className="h-10 w-auto"
-          />
+          <picture>
+            <source srcSet="/assets/logo-no-bg.webp" type="image/webp" />
+            <img
+              src="/assets/logo-no-bg.png"
+              alt="Logo C&C Vida e Negócio - Corretora de Seguros"
+              className="h-10 w-auto"
+              width="40"
+              height="40"
+            />
+          </picture>
           <div className="text-xl font-bold text-primary tracking-tighter">
             C&C VIDA E NEGÓCIO
           </div>
@@ -37,7 +42,7 @@ export function HeroSection() {
     <section id="hero" className="section-light pt-32 pb-16 md:pt-48 md:pb-24 overflow-hidden relative">
       {/* Decorative background element */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-      
+
       <div className="container relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -45,7 +50,7 @@ export function HeroSection() {
               Proteção Familiar & Empresarial
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
-              Proteja o que mais importa: <br/>
+              Proteja o que mais importa: <br />
               <span className="text-accent-gold">Sua Vida e Seu Negócio</span>
             </h1>
             <p className="text-lg text-gray-400 leading-relaxed max-w-xl">
@@ -85,16 +90,20 @@ export function HeroSection() {
           <div className="relative group">
             {/* Efeito de brilho ao fundo */}
             <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full scale-75 group-hover:scale-100 transition-transform duration-700 pointer-events-none" />
-            
+
             <div className="relative aspect-[4/5] md:aspect-square overflow-hidden rounded-2xl border border-primary/20 shadow-2xl bg-neutral-900 group-hover:border-primary/40 transition-colors duration-500">
-              <img 
-                src="/assets/familia-cleber.png" 
-                alt="Cleber e Família - C&C Vida e Negócio" 
-                className="w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700"
-              />
+              <picture>
+                <source srcSet="/assets/familia-cleber.webp" type="image/webp" />
+                <img
+                  src="/assets/familia-cleber.png"
+                  alt="Cleber Carrijo, fundador da C&C Vida e Negócio, com sua família - especialistas em seguros de vida e empresariais em Catanduva SP"
+                  className="w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
+                />
+              </picture>
               {/* Overlay gradiente para elegância */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-              
+
 
             </div>
           </div>
@@ -145,14 +154,14 @@ export function ApresentacaoSection() {
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <h2 className="text-3xl md:text-5xl font-bold leading-tight">
-            Sua tranquilidade é o nosso <br/>
+            Sua tranquilidade é o nosso <br />
             <span className="text-accent-gold">maior compromisso.</span>
           </h2>
           <p className="text-lg text-gray-400 leading-relaxed">
             A C&C Vida e Negócio nasceu para oferecer um atendimento verdadeiramente consultivo. Construímos estratégias de proteção sólidas para o seu patrimônio e para quem você ama.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {differentials.map((item, i) => (
             <div key={i} className="bg-neutral-900/50 border border-primary/10 rounded-2xl p-8 hover:border-primary/40 transition-all group flex items-start gap-6">
@@ -393,7 +402,7 @@ Vi seu site e gostaria de uma consultoria.`;
 
   return (
     <section id="formulario" className="bg-black pt-20 pb-10 md:pt-32 md:pb-16 relative">
-       <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full pointer-events-none" />
       <div className="container relative z-10">
         <div className="max-w-3xl mx-auto bg-neutral-900 border border-primary/20 rounded-3xl overflow-hidden shadow-2xl">
           <div className="p-8 md:p-12 bg-primary/10 text-center border-b border-primary/10">
@@ -413,7 +422,7 @@ Vi seu site e gostaria de uma consultoria.`;
                   placeholder="Ex: João Silva"
                 />
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-gray-500">WhatsApp</label>

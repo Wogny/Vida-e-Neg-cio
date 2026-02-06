@@ -1,0 +1,11 @@
+# C&C Vida e Negócio - Robots.txt
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ccvidaenegocio.com.br/sitemap.xml
+
+# Block development/internal paths
+Disallow: /__manus__/
