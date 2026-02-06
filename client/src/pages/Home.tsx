@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <div className="bg-background">
       <Header />
-      <main>
+      <main id="main-content">
         <HeroSection />
         <ApresentacaoSection />
         <DepoimentosSection />
