@@ -255,29 +255,35 @@ export function ComparativoSection() {
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Por que escolher a <span className="text-accent-gold">C&C?</span></h2>
           <p className="text-gray-500">Compare e veja a diferença de uma corretora de elite.</p>
         </div>
-        <div className="max-w-4xl mx-auto overflow-hidden rounded-2xl border border-primary/20 shadow-2xl">
-          <table className="w-full border-collapse text-left">
+        {/* Indicador de scroll para mobile */}
+        <div className="md:hidden text-center text-sm text-gray-500 mb-2 flex items-center justify-center gap-2">
+          <span>←</span>
+          <span>Deslize para ver mais</span>
+          <span>→</span>
+        </div>
+        <div className="max-w-4xl mx-auto overflow-x-auto rounded-2xl border border-primary/20 shadow-2xl scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent">
+          <table className="w-full border-collapse text-left min-w-[600px]">
             <thead>
               <tr className="bg-primary/10 border-b border-primary/20">
-                <th className="p-6 font-bold text-gray-300">Diferencial</th>
-                <th className="p-6 font-bold text-primary">C&C Vida e Negócio</th>
-                <th className="p-6 font-bold text-gray-500">Seguradoras Tradicionais</th>
+                <th className="p-4 md:p-6 font-bold text-gray-300 whitespace-nowrap">Diferencial</th>
+                <th className="p-4 md:p-6 font-bold text-primary whitespace-nowrap">C&C Vida e Negócio</th>
+                <th className="p-4 md:p-6 font-bold text-gray-500 whitespace-nowrap">Seguradoras Tradicionais</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-primary/10">
               {rows.map((row, i) => (
                 <tr key={i} className="hover:bg-primary/5 transition-colors">
-                  <td className="p-6 text-gray-400 font-medium">{row.feature}</td>
-                  <td className="p-6 text-white font-semibold">
+                  <td className="p-4 md:p-6 text-gray-400 font-medium whitespace-nowrap">{row.feature}</td>
+                  <td className="p-4 md:p-6 text-white font-semibold">
                     <div className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-primary" />
-                      {row.ccvida}
+                      <Check className="w-4 h-4 text-primary shrink-0" />
+                      <span>{row.ccvida}</span>
                     </div>
                   </td>
-                  <td className="p-6 text-gray-600">
+                  <td className="p-4 md:p-6 text-gray-600">
                     <div className="flex items-center gap-2">
-                      <X className="w-4 h-4 opacity-50" />
-                      {row.tradicional}
+                      <X className="w-4 h-4 opacity-50 shrink-0" />
+                      <span>{row.tradicional}</span>
                     </div>
                   </td>
                 </tr>
@@ -323,7 +329,7 @@ export function ComoFuncionaSection() {
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-20">Processo <span className="text-accent-gold">Simples e Seguro</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, i) => (
-            <div key={i} className="bg-neutral-900 border border-primary/20 rounded-xl p-8 flex items-start gap-6 hover:border-primary/50 transition-all group">
+            <div key={i} className="bg-neutral-900 border border-primary/20 rounded-xl p-8 flex items-start gap-6 hover:border-primary/50 transition-all group hover-lift">
               <div className="text-4xl font-black text-primary/40 group-hover:text-primary transition-colors shrink-0 pt-1">
                 {step.number}
               </div>

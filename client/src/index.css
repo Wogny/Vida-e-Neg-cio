@@ -47,32 +47,35 @@
   /* Primary: Dourado Metálico (D4AF37) -> oklch(0.75 0.15 70) */
   --primary: oklch(0.75 0.15 70);
   --primary-foreground: oklch(0.1 0 0);
-  
-  --background: oklch(0.1 0 0); /* Preto profundo */
-  --foreground: oklch(0.98 0 0); /* Branco quebrado */
-  
+
+  --background: oklch(0.1 0 0);
+  /* Preto profundo */
+  --foreground: oklch(0.98 0 0);
+  /* Branco quebrado */
+
   --card: oklch(0.15 0 0);
   --card-foreground: oklch(0.98 0 0);
-  
+
   --popover: oklch(0.15 0 0);
   --popover-foreground: oklch(0.98 0 0);
-  
+
   --secondary: oklch(0.2 0 0);
-  --secondary-foreground: oklch(0.75 0.15 70); /* Dourado */
-  
+  --secondary-foreground: oklch(0.75 0.15 70);
+  /* Dourado */
+
   --muted: oklch(0.25 0 0);
   --muted-foreground: oklch(0.7 0 0);
-  
+
   --accent: oklch(0.75 0.15 70);
   --accent-foreground: oklch(0.1 0 0);
-  
+
   --destructive: oklch(0.5 0.2 25);
   --destructive-foreground: oklch(0.98 0 0);
-  
+
   --border: oklch(0.25 0 0);
   --input: oklch(0.25 0 0);
   --ring: oklch(0.75 0.15 70);
-  
+
   --radius: 0.5rem;
 }
 
@@ -81,11 +84,18 @@
     @apply border-border outline-ring/50;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 700;
   }
@@ -144,6 +154,7 @@ html {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -151,9 +162,12 @@ html {
 }
 
 @keyframes pulse-gold {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
   }
+
   50% {
     box-shadow: 0 0 20px 10px rgba(212, 175, 55, 0);
   }
@@ -174,4 +188,39 @@ html {
 .hover-lift:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
+}
+
+/* Scrollbar customizada */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.3) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.5);
+}
+
+/* Animação de entrada para elementos visíveis */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
