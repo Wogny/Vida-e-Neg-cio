@@ -143,6 +143,10 @@
     font-family: 'Poppins', sans-serif;
   }
 
+  .font-bowie {
+    font-family: 'Bowie', sans-serif;
+  }
+
   .border-accent-gold {
     @apply border-primary;
   }
