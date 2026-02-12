@@ -4,9 +4,8 @@ import {
   ApresentacaoSection,
   DepoimentosSection,
   ComparativoSection,
-  ComoFuncionaSection,
   FAQSection,
-  FormularioSection,
+  FormSection,
   Footer,
   Header,
   FloatingWhatsAppButton,
@@ -36,9 +35,8 @@ export default function Home() {
         <ApresentacaoSection />
         <DepoimentosSection />
         <ComparativoSection />
-        <ComoFuncionaSection />
         <FAQSection />
-        <FormularioSection />
+        <FormSection />
       </main>
       <Footer />
       <FloatingWhatsAppButton />
