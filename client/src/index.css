@@ -139,6 +139,10 @@
     -webkit-text-fill-color: transparent;
   }
 
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+
   .border-accent-gold {
     @apply border-primary;
   }

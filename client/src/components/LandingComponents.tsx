@@ -59,7 +59,7 @@ export function HeroSection() {
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
               Proteja o que mais importa: <br />
-              <span className="text-accent-gold">Sua Vida, Seu Negócio e Sua Familia</span>
+              <span className="text-accent-gold font-poppins font-bold">Sua Vida, Seu Negócio e Sua Familia</span>
             </h1>
             <p className="text-lg text-gray-400 leading-relaxed max-w-xl">
               Especialistas em seguros personalizados. Garantimos a tranquilidade da sua família e a continuidade do seu empreendimento com soluções de elite.
