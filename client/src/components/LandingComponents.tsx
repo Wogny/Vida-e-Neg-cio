@@ -269,7 +269,7 @@ export function ComparativoSection() {
               <tr className="bg-primary/10">
                 <th className="p-6 text-primary font-bold uppercase tracking-widest text-xs">Diferenciais</th>
                 <th className="p-6 text-primary font-bold uppercase tracking-widest text-xs text-center">C&C Vida e Negócio</th>
-                <th className="p-6 text-primary/60 font-bold uppercase tracking-widest text-xs text-center">Outras Corretoras</th>
+                <th className="p-6 text-primary/80 font-bold uppercase tracking-widest text-xs text-center">Outras Corretoras</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-primary/10">
@@ -279,7 +279,7 @@ export function ComparativoSection() {
                   <td className="p-6 text-center">
                     {f.cc ? <Check className="w-6 h-6 text-primary mx-auto" /> : <X className="w-6 h-6 text-primary/20 mx-auto" />}
                   </td>
-                  <td className="p-6 text-center text-primary/40">
+                  <td className="p-6 text-center text-primary/60">
                     {typeof f.others === "string" ? f.others : (f.others ? <Check className="w-5 h-5 mx-auto" /> : <X className="w-5 h-5 mx-auto" />)}
                   </td>
                 </tr>
