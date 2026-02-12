@@ -394,11 +394,42 @@ export function FormSection() {
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-primary/60">Tipo de Seguro</label>
-                <select className="w-full bg-black/50 border border-primary/20 rounded-xl p-4 text-white focus:border-primary focus:outline-none transition-colors appearance-none">
-                  <option>Seguro de Vida</option>
-                  <option>Seguro Empresarial</option>
-                  <option>Previdência Privada</option>
-                  <option>Outros</option>
+                <select className="w-full bg-black/50 border border-primary/20 rounded-xl p-4 text-white focus:border-primary focus:outline-none transition-colors appearance-none scrollbar-thin scrollbar-thumb-primary">
+                  <optgroup label="Seguros Individuais">
+                    <option>Seguro Vida Inteira (Vitalício)</option>
+                    <option>Seguro Vida Inteira Idades Especiais</option>
+                    <option>Seguro Vida Inteira Único</option>
+                    <option>Seguro Vida Inteira Mais</option>
+                    <option>Seguro Prudential Vida & Saúde</option>
+                    <option>Seguro de Vida Temporário</option>
+                    <option>Seguro Temporário Decrescente</option>
+                    <option>Seguro Temporário Preferencial</option>
+                    <option>Seguro Renda Familiar</option>
+                    <option>Seguro Doenças Graves</option>
+                    <option>Seguro Invalidez Acidental</option>
+                    <option>Seguro Morte Acidental</option>
+                    <option>Seguro Assistência Funeral</option>
+                    <option>Seguro Renda Hospitalar</option>
+                    <option>Seguro Cirurgia e Cirurgia Ampliada</option>
+                  </optgroup>
+                  <optgroup label="Seguros Empresariais">
+                    <option>Seguro de Vida em Grupo (Corporate)</option>
+                    <option>Seguro de Vida em Grupo Express (PME)</option>
+                    <option>Seguro Capital Global (PME)</option>
+                    <option>Seguro Sucessão Empresarial</option>
+                    <option>Seguro Acidentes Pessoais Coletivo</option>
+                    <option>Seguro Acidentes Pessoais Eventos</option>
+                    <option>Seguro Acidentes Pessoais Passageiros</option>
+                    <option>Seguro Viagem Corporativo</option>
+                    <option>Seguro Prestamista</option>
+                    <option>Seguro Doenças Tropicais</option>
+                    <option>Seguro Responsabilidade Civil Profissional (E&O)</option>
+                    <option>Seguro Responsabilidade Civil Diretores (D&O)</option>
+                    <option>Seguro Garantia Contratual</option>
+                    <option>Seguro de Carga e Logística</option>
+                    <option>Seguro Patrimonial Empresarial</option>
+                  </optgroup>
+                  <option>Outros / Consultoria Personalizada</option>
                 </select>
               </div>
               <Button className="btn-gold w-full h-14 text-base mt-4">Solicitar Contato</Button>
