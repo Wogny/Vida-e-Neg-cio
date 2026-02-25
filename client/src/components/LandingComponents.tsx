@@ -110,23 +110,25 @@ export function Header() {
             {mobileOpen ? <XIcon className="w-6 h-6 text-primary" /> : <Menu className="w-6 h-6 text-primary" />}
           </button>
         </div>
+      </header>
 
-        {/* Mobile menu overlay */}
+      {/* Mobile menu - rendered OUTSIDE header to avoid stacking context issues */}
+      {mobileOpen && (
         <div
-          className={`md:hidden fixed inset-0 top-[73px] bg-black backdrop-blur-none transition-all duration-300 z-50 ${
-            mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
+          className="md:hidden fixed inset-0 z-[60]"
+          style={{ top: 73 }}
         >
-          <nav className="flex flex-col items-center justify-center gap-2 pt-8 px-6" role="navigation" aria-label="Navegação mobile">
+          {/* Solid black background */}
+          <div className="absolute inset-0 bg-[#000000]" />
+
+          <nav className="relative z-10 flex flex-col items-center gap-2 pt-8 px-6" role="navigation" aria-label="Navegação mobile">
             {NAV_LINKS.map((link, i) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className={`w-full text-center text-lg font-semibold py-4 border-b border-primary/10 hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 rounded ${
-                  mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-                style={{ transitionDelay: mobileOpen ? `${i * 60}ms` : "0ms" }}
+                className="w-full text-center text-lg font-semibold py-4 border-b border-primary/10 text-white hover:text-primary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary/50 rounded"
+                style={{ animationDelay: `${i * 60}ms` }}
               >
                 {link.label}
               </a>
@@ -135,8 +137,7 @@ export function Header() {
               href={whatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className={`mt-6 w-full transition-all duration-300 ${mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-              style={{ transitionDelay: mobileOpen ? `${NAV_LINKS.length * 60}ms` : "0ms" }}
+              className="mt-6 w-full"
             >
               <Button className="btn-gold w-full h-14 text-base">
                 Fale no WhatsApp
@@ -144,7 +145,7 @@ export function Header() {
             </a>
           </nav>
         </div>
-      </header>
+      )}
     </>
   );
 }
