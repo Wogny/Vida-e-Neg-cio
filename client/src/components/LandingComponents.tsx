@@ -60,9 +60,9 @@ export function HeroSection() {
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
               Proteja o que mais importa: <br />
-              <span className="text-accent-gold">Sua Vida e Seu Negócio</span>
+              <span className="text-accent-gold font-bowie font-bold">Sua Vida, Seu Negócio e Sua Familia</span>
             </h1>
-            <p className="text-lg text-gray-400 leading-relaxed max-w-xl">
+            <p className="text-lg text-white/80 leading-relaxed max-w-xl">
               Especialistas em seguros personalizados. Garantimos a tranquilidade da sua família e a continuidade do seu empreendimento com soluções de elite.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -77,7 +77,7 @@ export function HeroSection() {
                 </Button>
               </a>
             </div>
-            <div className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-400">
+            <div className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-primary/80">
               <p className="flex items-center gap-2">
                 <Check className="w-5 h-5 text-primary" />
                 Atendimento Personalizado
@@ -140,7 +140,7 @@ export function StatsSection() {
               <div className="text-4xl md:text-5xl font-bold text-accent-gold mb-2 group-hover:scale-110 transition-transform">
                 {stat.value}
               </div>
-              <p className="text-gray-500 uppercase tracking-widest text-xs font-semibold">{stat.label}</p>
+              <p className="text-primary/60 uppercase tracking-widest text-xs font-semibold">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -166,7 +166,7 @@ export function ApresentacaoSection() {
             Sua tranquilidade é o nosso <br />
             <span className="text-accent-gold">maior compromisso.</span>
           </h2>
-          <p className="text-lg text-gray-400 leading-relaxed">
+          <p className="text-lg text-white/80 leading-relaxed">
             A C&C Vida e Negócio nasceu da união de princípios familiares e da visão de Cleber e sua esposa, que juntos construíram uma consultoria de seguros verdadeiramente consultiva. Nosso compromisso é com a sua tranquilidade, protegendo o seu patrimônio e, acima de tudo, quem você mais ama, com estratégias sólidas e personalizadas.
           </p>
         </div>
@@ -179,7 +179,7 @@ export function ApresentacaoSection() {
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                <p className="text-primary/70 text-sm leading-relaxed">{item.description}</p>
               </div>
             </div>
           ))}
@@ -216,21 +216,24 @@ export function DepoimentosSection() {
     <section id="depoimentos" className="bg-black py-20 md:py-32">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold">O que nossos <span className="text-accent-gold">clientes dizem</span></h2>
-          <p className="text-gray-500">A confiança de quem já conta com a nossa proteção.</p>
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+            O que dizem nossos <br />
+            <span className="text-accent-gold">clientes de elite.</span>
+          </h2>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
-            <Card key={i} className="bg-neutral-900/50 border-primary/10 p-8 hover:border-primary/30 transition-colors group hover-lift">
+            <Card key={i} className="bg-neutral-900/50 border-primary/10 p-8 rounded-2xl hover:border-primary/40 transition-all group">
               <div className="flex gap-1 mb-6">
-                {[...Array(t.stars)].map((_, idx) => (
-                  <Star key={idx} className="w-4 h-4 fill-primary text-primary" />
+                {[...Array(t.stars)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                 ))}
               </div>
-              <p className="text-gray-300 italic mb-8 leading-relaxed">"{t.content}"</p>
+              <p className="text-white/90 italic mb-8 leading-relaxed">"{t.content}"</p>
               <div>
                 <p className="font-bold text-white group-hover:text-primary transition-colors">{t.name}</p>
-                <p className="text-xs text-gray-500 uppercase tracking-widest">{t.role}</p>
+                <p className="text-primary/60 text-sm">{t.role}</p>
               </div>
             </Card>
           ))}
@@ -242,104 +245,48 @@ export function DepoimentosSection() {
 
 /* Comparativo Section */
 export function ComparativoSection() {
-  const rows = [
-    { feature: "Atendimento", ccvida: "Consultivo e Humano", tradicional: "Call centers impessoais" },
-    { feature: "Personalização", ccvida: "Plano sob medida", tradicional: "Pacotes engessados" },
-    { feature: "Flexibilidade", ccvida: "Soluções adaptadas", tradicional: "Planos pré-definidos" },
-    { feature: "Suporte no Sinistro", ccvida: "Acompanhamento total", tradicional: "Você resolve sozinho" },
+  const features = [
+    { name: "Consultoria Personalizada", cc: true, others: false },
+    { name: "Análise de Riscos Detalhada", cc: true, others: false },
+    { name: "Suporte em Sinistros 24h", cc: true, others: "Limitado" },
+    { name: "Acesso às Melhores Seguradoras", cc: true, others: true },
+    { name: "Estratégias de Sucessão Familiar", cc: true, others: false },
+    { name: "Proteção de Capital Social", cc: true, others: false },
   ];
 
   return (
     <section id="comparativo" className="section-light py-20 md:py-32">
       <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Por que escolher a <span className="text-accent-gold">C&C?</span></h2>
-          <p className="text-gray-500">Compare e veja a diferença de uma corretora de elite.</p>
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+            Por que escolher a <br />
+            <span className="text-accent-gold">C&C Vida e Negócio?</span>
+          </h2>
         </div>
-        {/* Indicador de scroll para mobile */}
-        <div className="md:hidden text-center text-sm text-gray-500 mb-2 flex items-center justify-center gap-2">
-          <span>←</span>
-          <span>Deslize para ver mais</span>
-          <span>→</span>
-        </div>
-        <div className="max-w-4xl mx-auto overflow-x-auto rounded-2xl border border-primary/20 shadow-2xl scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent">
-          <table className="w-full border-collapse text-left min-w-[600px]">
+
+        <div className="max-w-4xl mx-auto overflow-hidden rounded-2xl border border-primary/20 shadow-2xl">
+          <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-primary/10 border-b border-primary/20">
-                <th className="p-4 md:p-6 font-bold text-gray-300 whitespace-nowrap">Diferencial</th>
-                <th className="p-4 md:p-6 font-bold text-primary whitespace-nowrap">C&C Vida e Negócio</th>
-                <th className="p-4 md:p-6 font-bold text-gray-500 whitespace-nowrap">Seguradoras Tradicionais</th>
+              <tr className="bg-primary/10">
+                <th className="p-6 text-primary font-bold uppercase tracking-widest text-xs">Diferenciais</th>
+                <th className="p-6 text-primary font-bold uppercase tracking-widest text-xs text-center">C&C Vida e Negócio</th>
+                <th className="p-6 text-primary/80 font-bold uppercase tracking-widest text-xs text-center">Outras Corretoras</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-primary/10">
-              {rows.map((row, i) => (
+              {features.map((f, i) => (
                 <tr key={i} className="hover:bg-primary/5 transition-colors">
-                  <td className="p-4 md:p-6 text-gray-400 font-medium whitespace-nowrap">{row.feature}</td>
-                  <td className="p-4 md:p-6 text-white font-semibold">
-                    <div className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-primary shrink-0" />
-                      <span>{row.ccvida}</span>
-                    </div>
+                  <td className="p-6 text-white font-medium">{f.name}</td>
+                  <td className="p-6 text-center">
+                    {f.cc ? <Check className="w-6 h-6 text-primary mx-auto" /> : <X className="w-6 h-6 text-primary/20 mx-auto" />}
                   </td>
-                  <td className="p-4 md:p-6 text-gray-600">
-                    <div className="flex items-center gap-2">
-                      <X className="w-4 h-4 opacity-50 shrink-0" />
-                      <span>{row.tradicional}</span>
-                    </div>
+                  <td className="p-6 text-center text-primary/60">
+                    {typeof f.others === "string" ? f.others : (f.others ? <Check className="w-5 h-5 mx-auto" /> : <X className="w-5 h-5 mx-auto" />)}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
-        <div className="text-center mt-16">
-          <a href="https://wa.me/5517992378821?text=Ol%C3%A1%20Cleber!%20Vi%20o%20site%20da%20C%26C%20Vida%20e%20Neg%C3%B3cio%20e%20gostaria%20de%20conhecer%20melhor%20as%20solu%C3%A7%C3%B5es%20de%20prote%C3%A7%C3%A3o%20que%20voc%C3%AAs%20oferecem." target="_blank" rel="noopener noreferrer">
-            <Button className="btn-gold text-lg h-14 px-12">
-              Conheça Nossas Soluções
-            </Button>
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* Como Funciona Section */
-export function ComoFuncionaSection() {
-  const steps = [
-    {
-      number: "01",
-      title: "Consultoria Inicial",
-      description: "Entendemos seu perfil e necessidades reais em uma conversa rápida via WhatsApp.",
-    },
-    {
-      number: "02",
-      title: "Análise de Mercado",
-      description: "Buscamos nas melhores seguradoras a solução com o melhor custo-benefício para você.",
-    },
-    {
-      number: "03",
-      title: "Proteção Ativada",
-      description: "Você assina sua apólice e passa a contar com nossa assessoria permanente.",
-    },
-  ];
-
-  return (
-    <section id="como-funciona" className="bg-black py-20 md:py-32">
-      <div className="container">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-20">Processo <span className="text-accent-gold">Simples e Seguro</span></h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {steps.map((step, i) => (
-            <div key={i} className="bg-neutral-900 border border-primary/20 rounded-xl p-8 flex items-start gap-6 hover:border-primary/50 transition-all group hover-lift">
-              <div className="text-4xl font-black text-primary/40 group-hover:text-primary transition-colors shrink-0 pt-1">
-                {step.number}
-              </div>
-              <div className="space-y-3">
-                <h3 className="text-xl font-bold text-white">{step.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -350,42 +297,46 @@ export function ComoFuncionaSection() {
 export function FAQSection() {
   const faqs = [
     {
-      question: "Por que contratar um seguro de vida?",
-      answer: "O seguro de vida garante a manutenção do padrão de vida da sua família em momentos difíceis, além de poder oferecer coberturas para doenças graves e invalidez para o próprio segurado."
+      q: "Como funciona a consultoria da C&C?",
+      a: "Nossa consultoria começa com um diagnóstico completo do seu momento atual, identificando riscos e necessidades específicas para então apresentar as melhores soluções de proteção."
     },
     {
-      question: "Como funciona o seguro empresarial?",
-      answer: "Ele protege o patrimônio físico da sua empresa, mas também pode garantir a continuidade do negócio em caso de ausência de sócios-chave ou responsabilidades civis."
+      q: "Quais tipos de seguros vocês oferecem?",
+      a: "Somos especialistas em Seguro de Vida (Individual e em Grupo), Seguro Empresarial, Responsabilidade Civil, Previdência Privada e estratégias de Sucessão Empresarial."
     },
     {
-      question: "Qual o diferencial da C&C?",
-      answer: "Nosso diferencial é o atendimento personalizado. Não somos apenas um site de vendas; somos consultores que analisam cada detalhe para que você não pague por coberturas desnecessárias."
+      q: "O atendimento é apenas em Catanduva?",
+      a: "Não! Embora nossa sede seja em Catanduva/SP, utilizamos tecnologia de ponta para atender clientes e empresas em todo o território nacional com a mesma excelência."
     },
     {
-      question: "Como solicitar uma cotação?",
-      answer: "Basta clicar em qualquer botão de WhatsApp no site ou preencher o formulário abaixo. Entraremos em contato em poucos minutos."
+      q: "Como solicitar uma cotação?",
+      a: "Você pode clicar no botão do WhatsApp para falar diretamente conosco ou preencher o formulário abaixo. Retornamos seu contato em poucos minutos."
     }
   ];
 
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="section-light py-20 md:py-32">
-      <div className="container max-w-3xl">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Dúvidas <span className="text-accent-gold">Frequentes</span></h2>
+    <section id="faq" className="bg-black py-20 md:py-32">
+      <div className="container max-w-4xl">
+        <div className="text-center mb-16 space-y-4">
+          <h2 className="text-3xl md:text-5xl font-bold">Dúvidas Frequentes</h2>
+          <p className="text-primary/60">Esclareça os principais pontos sobre nossas soluções.</p>
+        </div>
+
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div key={i} className="border border-primary/10 rounded-xl overflow-hidden bg-neutral-900/30">
+            <div key={i} className="border border-primary/10 rounded-2xl overflow-hidden transition-all hover:border-primary/30">
               <button
                 onClick={() => setOpenIdx(openIdx === i ? null : i)}
-                className="w-full p-6 text-left flex justify-between items-center hover:bg-primary/5 transition-colors"
+                className="w-full p-6 text-left flex justify-between items-center bg-neutral-900/30 hover:bg-neutral-900/50 transition-colors"
               >
-                <span className="font-bold text-gray-200">{faq.question}</span>
+                <span className="font-bold text-white">{faq.q}</span>
                 <ChevronDown className={`w-5 h-5 text-primary transition-transform ${openIdx === i ? 'rotate-180' : ''}`} />
               </button>
               {openIdx === i && (
-                <div className="p-6 pt-0 text-gray-400 leading-relaxed border-t border-primary/5">
-                  {faq.answer}
+                <div className="p-6 bg-neutral-900/10 text-primary/80 leading-relaxed border-t border-primary/5">
+                  {faq.a}
                 </div>
               )}
             </div>
@@ -396,98 +347,93 @@ export function FAQSection() {
   );
 }
 
-/* Formulário Section */
-export function FormularioSection() {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [profile, setProfile] = useState("");
-  const [healthHistory, setHealthHistory] = useState("");
-  const [needs, setNeeds] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const message = `Olá Cleber! Me chamo ${name}.
-Meu perfil/ocupação: ${profile || 'Não informado'}.
-Histórico de doenças: ${healthHistory || 'Não informado'}.
-O que procuro/necessito: ${needs || 'Não informado'}.
-Meu WhatsApp: ${phone}.
-Vi seu site e gostaria de uma consultoria.`;
-    window.open(`https://wa.me/5517992378821?text=${encodeURIComponent(message)}`, "_blank");
-  };
-
+/* Form Section */
+export function FormSection() {
   return (
-    <section id="formulario" className="bg-black pt-20 pb-10 md:pt-32 md:pb-16 relative">
-      <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full pointer-events-none" />
+    <section id="formulario" className="section-light py-20 md:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full translate-y-1/2 pointer-events-none" />
+      
       <div className="container relative z-10">
-        <div className="max-w-3xl mx-auto bg-neutral-900 border border-primary/20 rounded-3xl overflow-hidden shadow-2xl">
-          <div className="p-8 md:p-12 bg-primary/10 text-center border-b border-primary/10">
-            <h2 className="text-3xl font-bold mb-4">Solicite sua <span className="text-accent-gold">Consultoria Especializada</span></h2>
-            <p className="text-gray-400 max-w-xl mx-auto">Quanto mais detalhes você fornecer, melhor o Cleber poderá preparar uma solução personalizada para o seu caso.</p>
+        <div className="max-w-5xl mx-auto bg-neutral-900/80 border border-primary/20 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
+          <div className="p-8 md:p-12 md:w-1/2 bg-primary/5 flex flex-col justify-center space-y-8">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Pronto para proteger seu futuro?</h2>
+              <p className="text-primary/70">Preencha os dados e um de nossos consultores especialistas entrará em contato.</p>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+                  <Check className="w-5 h-5 text-primary" />
+                </div>
+                <p className="text-sm font-medium text-white">Consultoria 100% Gratuita</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+                  <Check className="w-5 h-5 text-primary" />
+                </div>
+                <p className="text-sm font-medium text-white">Análise Personalizada</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+                  <Check className="w-5 h-5 text-primary" />
+                </div>
+                <p className="text-sm font-medium text-white">As Melhores Taxas do Mercado</p>
+              </div>
+            </div>
           </div>
-          <div className="p-8 md:p-12 bg-neutral-900">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+          
+          <div className="p-8 md:p-12 md:w-1/2">
+            <form className="space-y-6">
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Nome Completo</label>
-                <input
-                  required
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full bg-black border border-primary/20 rounded-lg p-4 focus:border-primary outline-none transition-colors"
-                  placeholder="Ex: João Silva"
-                />
+                <label className="text-xs font-bold uppercase tracking-widest text-primary/60">Nome Completo</label>
+                <input type="text" className="w-full bg-black/50 border border-primary/20 rounded-xl p-4 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Seu nome" />
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-gray-500">WhatsApp</label>
-                  <input
-                    required
-                    type="tel"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="w-full bg-black border border-primary/20 rounded-lg p-4 focus:border-primary outline-none transition-colors"
-                    placeholder="(00) 00000-0000"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Seu Perfil (Ocupação / Empresa)</label>
-                  <input
-                    type="text"
-                    value={profile}
-                    onChange={(e) => setProfile(e.target.value)}
-                    className="w-full bg-black border border-primary/20 rounded-lg p-4 focus:border-primary outline-none transition-colors"
-                    placeholder="Ex: Profissional Liberal"
-                  />
-                </div>
-              </div>
-
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Histórico de Doenças</label>
-                <textarea
-                  value={healthHistory}
-                  onChange={(e) => setHealthHistory(e.target.value)}
-                  rows={2}
-                  className="w-full bg-black border border-primary/20 rounded-lg p-4 focus:border-primary outline-none transition-colors resize-none"
-                  placeholder="Informe se possui algum histórico relevante de saúde..."
-                />
+                <label className="text-xs font-bold uppercase tracking-widest text-primary/60">WhatsApp</label>
+                <input type="tel" className="w-full bg-black/50 border border-primary/20 rounded-xl p-4 text-white focus:border-primary focus:outline-none transition-colors" placeholder="(00) 00000-0000" />
               </div>
-
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">O que você procura ou necessita?</label>
-                <textarea
-                  required
-                  value={needs}
-                  onChange={(e) => setNeeds(e.target.value)}
-                  rows={4}
-                  className="w-full bg-black border border-primary/20 rounded-lg p-4 focus:border-primary outline-none transition-colors resize-none"
-                  placeholder="Explique detalhadamente sua necessidade para que possamos te ajudar melhor..."
-                />
+                <label className="text-xs font-bold uppercase tracking-widest text-primary/60">Tipo de Seguro</label>
+                <select className="w-full bg-black/50 border border-primary/20 rounded-xl p-4 text-white focus:border-primary focus:outline-none transition-colors appearance-none scrollbar-thin scrollbar-thumb-primary">
+                  <optgroup label="Seguros Individuais">
+                    <option>Seguro Vida Inteira (Vitalício)</option>
+                    <option>Seguro Vida Inteira Idades Especiais</option>
+                    <option>Seguro Vida Inteira Único</option>
+                    <option>Seguro Vida Inteira Mais</option>
+                    <option>Seguro Prudential Vida & Saúde</option>
+                    <option>Seguro de Vida Temporário</option>
+                    <option>Seguro Temporário Decrescente</option>
+                    <option>Seguro Temporário Preferencial</option>
+                    <option>Seguro Renda Familiar</option>
+                    <option>Seguro Doenças Graves</option>
+                    <option>Seguro Invalidez Acidental</option>
+                    <option>Seguro Morte Acidental</option>
+                    <option>Seguro Assistência Funeral</option>
+                    <option>Seguro Renda Hospitalar</option>
+                    <option>Seguro Cirurgia e Cirurgia Ampliada</option>
+                  </optgroup>
+                  <optgroup label="Seguros Empresariais">
+                    <option>Seguro de Vida em Grupo (Corporate)</option>
+                    <option>Seguro de Vida em Grupo Express (PME)</option>
+                    <option>Seguro Capital Global (PME)</option>
+                    <option>Seguro Sucessão Empresarial</option>
+                    <option>Seguro Acidentes Pessoais Coletivo</option>
+                    <option>Seguro Acidentes Pessoais Eventos</option>
+                    <option>Seguro Acidentes Pessoais Passageiros</option>
+                    <option>Seguro Viagem Corporativo</option>
+                    <option>Seguro Prestamista</option>
+                    <option>Seguro Doenças Tropicais</option>
+                    <option>Seguro Responsabilidade Civil Profissional (E&O)</option>
+                    <option>Seguro Responsabilidade Civil Diretores (D&O)</option>
+                    <option>Seguro Garantia Contratual</option>
+                    <option>Seguro de Carga e Logística</option>
+                    <option>Seguro Patrimonial Empresarial</option>
+                  </optgroup>
+                  <option>Outros / Consultoria Personalizada</option>
+                </select>
               </div>
-
-              <Button type="submit" className="btn-gold w-full h-16 text-lg mt-4 shadow-[0_0_20px_rgba(212,175,55,0.2)]">
-                Enviar Solicitação via WhatsApp
-              </Button>
+              <Button className="btn-gold w-full h-14 text-base mt-4">Solicitar Contato</Button>
             </form>
           </div>
         </div>
@@ -780,14 +726,14 @@ export function ServicesSection() {
 /* Footer Component */
 export function Footer() {
   return (
-    <footer className="bg-black pt-16 pb-8 border-t border-primary/10">
+    <footer className="bg-black pt-20 pb-10 border-t border-primary/10">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2 space-y-6">
             <div className="text-2xl font-bold text-primary tracking-tighter">
               C&C VIDA E NEGÓCIO
             </div>
-            <p className="text-gray-500 max-w-sm">
+            <p className="text-primary/60 max-w-sm">
               Especialistas em seguros de elite. Protegendo o seu futuro com transparência, ética e as melhores soluções do mercado.
             </p>
           </div>
@@ -795,28 +741,28 @@ export function Footer() {
             <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Contato</h4>
             <ul className="space-y-4 text-sm">
               <li>
-                <a href="https://wa.me/5517992378821?text=Ol%C3%A1%20Cleber!%20Vi%20o%20site%20da%20C%26C%20Vida%20e%20Neg%C3%B3cio%20e%20gostaria%20de%20conhecer%20melhor%20as%20solu%C3%A7%C3%B5es%20de%20prote%C3%A7%C3%A3o%20que%20voc%C3%AAs%20oferecem." target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition flex items-center gap-2">
+                <a href="https://wa.me/5517992378821?text=Ol%C3%A1%20Cleber!%20Vi%20o%20site%20da%20C%26C%20Vida%20e%20Neg%C3%B3cio%20e%20gostaria%20de%20conhecer%20melhor%20as%20solu%C3%A7%C3%B5es%20de%20prote%C3%A7%C3%A3o%20que%20voc%C3%AAs%20oferecem." target="_blank" rel="noopener noreferrer" className="text-primary/70 hover:text-primary transition flex items-center gap-2">
                   WhatsApp: (17) 99237-8821
                 </a>
               </li>
-              <li className="text-gray-400">Catanduva, SP</li>
-              <li className="text-gray-400">Atendimento em todo o Brasil</li>
+              <li className="text-primary/60">Catanduva, SP</li>
+              <li className="text-primary/60">Atendimento em todo o Brasil</li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Legal</h4>
             <div className="space-y-4">
-              <p className="text-xs text-gray-600">
+              <p className="text-xs text-primary/40">
                 CNPJ: 51.820.039/0001-96
               </p>
-              <p className="text-xs text-gray-600 leading-relaxed">
+              <p className="text-xs text-primary/40 leading-relaxed">
                 Corretora de seguros autorizada pela SUSEP. Proteção garantida pelas maiores seguradoras.
               </p>
             </div>
           </div>
         </div>
         <div className="border-t border-primary/5 pt-8 text-center">
-          <p className="text-gray-600 text-xs font-medium tracking-widest uppercase">
+          <p className="text-primary/40 text-xs font-medium tracking-widest uppercase">
             &copy; 2026 C&C Vida e Negócio. Excelência em Seguros.
           </p>
         </div>
@@ -832,7 +778,7 @@ export function FloatingWhatsAppButton() {
       href="https://wa.me/5517992378821?text=Ola%20Cleber!%20Vi%20o%20site%20da%20C%26C%20Vida%20e%20Negocio%20e%20gostaria%20de%20conhecer%20melhor%20as%20solucoes%20de%20protecao%20que%20voces%20oferecem."
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 flex items-center gap-3 group animate-pulse-gold"
+      className="fixed bottom-6 right-6 z-50 bg-primary hover:bg-primary/90 text-black rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 flex items-center gap-3 group animate-pulse-gold"
       aria-label="Fale conosco pelo WhatsApp"
       role="button"
     >

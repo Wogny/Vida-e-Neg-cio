@@ -64,16 +64,16 @@
   /* Dourado */
 
   --muted: oklch(0.25 0 0);
-  --muted-foreground: oklch(0.7 0 0);
+  --muted-foreground: oklch(0.75 0.15 70); /* Alterado de cinza para dourado */
 
   --accent: oklch(0.75 0.15 70);
   --accent-foreground: oklch(0.1 0 0);
 
-  --destructive: oklch(0.5 0.2 25);
-  --destructive-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.75 0.15 70); /* Alterado de vermelho para dourado */
+  --destructive-foreground: oklch(0.1 0 0);
 
-  --border: oklch(0.25 0 0);
-  --input: oklch(0.25 0 0);
+  --border: oklch(0.75 0.15 70 / 0.2); /* Bordas agora usam dourado com opacidade */
+  --input: oklch(0.75 0.15 70 / 0.2);
   --ring: oklch(0.75 0.15 70);
 
   --radius: 0.5rem;
@@ -139,9 +139,22 @@
     -webkit-text-fill-color: transparent;
   }
 
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-bowie {
+    font-family: 'Bowie', sans-serif;
+  }
+
   .border-accent-gold {
     @apply border-primary;
   }
+}
+
+/* Forçar cores de texto cinza para dourado ou branco */
+.text-gray-400, .text-gray-500 {
+  color: oklch(0.75 0.15 70 / 0.8) !important;
 }
 
 html {
