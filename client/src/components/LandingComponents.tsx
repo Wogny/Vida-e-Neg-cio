@@ -235,7 +235,7 @@ export function StatsSection() {
     { label: "Clientes Satisfeitos", value: "500+" },
     { label: "Capital Segurado", value: "R$ 50M+" },
     { label: "Taxa de Satisfação", value: "98%" },
-    { label: "Anos de Experiência", value: "10+" },
+    { label: "Anos de Experiência", value: "4+" },
   ];
 
   return (
