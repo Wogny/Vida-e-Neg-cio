@@ -164,7 +164,7 @@ export function HeroSection() {
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
               Proteja o que mais importa: <br />
-              <span className="text-accent-gold font-bowie font-bold">Sua Vida, Seu Negócio e Sua Familia</span>
+              <span className="text-accent-gold font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>Sua Vida, Seu Negócio e Sua Familia</span>
             </h1>
             <p className="text-lg text-white/80 leading-relaxed max-w-xl">
               Especialistas em seguros personalizados. Garantimos a tranquilidade da sua família e a continuidade do seu empreendimento com soluções de elite.
@@ -929,9 +929,20 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-primary/5 pt-8 text-center">
+        <div className="border-t border-primary/5 pt-8 text-center space-y-2">
           <p className="text-primary/60 text-xs font-medium tracking-widest uppercase">
             &copy; 2026 C&C Vida e Negócio. Excelência em Seguros.
+          </p>
+          <p className="text-primary/40 text-xs">
+            Feito por{" "}
+            <a
+              href="https://www.mercavejo.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary/60 hover:text-primary transition-colors underline underline-offset-2"
+            >
+              Mercavejo
+            </a>
           </p>
         </div>
       </div>
