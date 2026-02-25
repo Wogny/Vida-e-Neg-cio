@@ -2,6 +2,7 @@ import {
   HeroSection,
   StatsSection,
   ApresentacaoSection,
+  ServicesSection,
   DepoimentosSection,
   ComparativoSection,
   ComoFuncionaSection,
@@ -34,6 +35,7 @@ export default function Home() {
       <main id="main-content">
         <HeroSection />
         <ApresentacaoSection />
+        <ServicesSection />
         <DepoimentosSection />
         <ComparativoSection />
         <ComoFuncionaSection />

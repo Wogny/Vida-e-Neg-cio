@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Star, Check, X } from "lucide-react";
-import { useState } from "react";
+import { ChevronDown, Star, Check, X, Shield, TrendingUp, Scale } from "lucide-react";
+import { useState, useRef, useCallback, useEffect } from "react";
 
 /* Header Component */
 export function Header() {
@@ -34,6 +34,7 @@ export function Header() {
           <nav className="hidden md:flex gap-6 text-sm font-medium" role="navigation" aria-label="Navegação principal">
             <a href="#hero" className="hover:text-primary transition focus:outline-none focus:text-primary">Início</a>
             <a href="#apresentacao" className="hover:text-primary transition focus:outline-none focus:text-primary">Sobre</a>
+            <a href="#servicos" className="hover:text-primary transition focus:outline-none focus:text-primary">Serviços</a>
             <a href="#comparativo" className="hover:text-primary transition focus:outline-none focus:text-primary">Soluções</a>
             <a href="#faq" className="hover:text-primary transition focus:outline-none focus:text-primary">FAQ</a>
             <a href="#formulario" className="hover:text-primary transition focus:outline-none focus:text-primary">Contato</a>
@@ -489,6 +490,287 @@ Vi seu site e gostaria de uma consultoria.`;
               </Button>
             </form>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* Services Section - Accordion interativo estilo jamm.co */
+const servicesData = [
+  {
+    id: "seguros",
+    title: "Seguros",
+    subtitle: "Proteção completa para você, sua família e seu negócio",
+    icon: Shield,
+    services: [
+      {
+        name: "Especialista em Seguros Individuais",
+        details: "Seguro Vida Inteira; Vitalício, Único, Sucessão Empresarial; Proteção de sócios e continuidade; Idades Especiais; Temporários Padrão, Decrescente, Preferencial; Renda Familiar e Renda Hospitalar; Afastamento por qualquer doença e acidente; Doenças Graves; Invalidez por doença e por acidente; Cirurgia e Assistência Funeral",
+      },
+      {
+        name: "Vida em Grupo - Global e Flex",
+        details: "Prudential Vida & Saúde, MAG; Corporate, Express, Capital Global",
+      },
+      {
+        name: "Acidentes Pessoais",
+        details: "Coletivo, Eventos, Passageiros",
+      },
+      {
+        name: "Responsabilidade Civil",
+        details: "Para profissionais da saúde",
+      },
+      {
+        name: "Seguro Garantia, Carga, Patrimonial e Viagem Corporativa",
+        details: null,
+      },
+      { name: "Seguro Prestamista", details: null },
+      { name: "Plano de Saúde", details: null },
+      { name: "Seguro Veicular", details: null },
+      { name: "Seguro Residencial", details: null },
+    ],
+  },
+  {
+    id: "financas",
+    title: "Finanças",
+    subtitle: "Gestão financeira estratégica e soluções de crédito",
+    icon: TrendingUp,
+    services: [
+      { name: "Limpa nome e retirada de restrições", details: null },
+      { name: "Aumento no score e rating", details: null },
+      { name: "Atualização no BACEN", details: null },
+      { name: "Assessoria financeira personalizada", details: null },
+      { name: "Consórcio", details: null },
+      { name: "Empréstimo", details: null },
+      { name: "Financiamento", details: null },
+      { name: "Capital de giro", details: null },
+      { name: "Previdência", details: null },
+      {
+        name: "Especialista em empreendimentos de alto padrão",
+        details: null,
+      },
+      { name: "Financiamento imobiliário", details: null },
+      { name: "Gestão de projetos", details: null },
+      { name: "Venda na planta", details: null },
+      { name: "Compra e venda", details: null },
+    ],
+  },
+  {
+    id: "tributario",
+    title: "Tributário",
+    subtitle: "Planejamento tributário e proteção patrimonial",
+    icon: Scale,
+    services: [
+      { name: "Revisão tributária", details: null },
+      { name: "Gestão de passivos", details: null },
+      { name: "Holding Patrimonial", details: null },
+    ],
+  },
+];
+
+function ServiceAccordionItem({
+  area,
+  isOpen,
+  onToggle,
+  index,
+}: {
+  area: (typeof servicesData)[0];
+  isOpen: boolean;
+  onToggle: () => void;
+  index: number;
+}) {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(isOpen ? contentRef.current.scrollHeight : 0);
+    }
+  }, [isOpen]);
+
+  // Recalculate on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (isOpen && contentRef.current) {
+        setHeight(contentRef.current.scrollHeight);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isOpen]);
+
+  const IconComponent = area.icon;
+
+  return (
+    <div className="border-b border-primary/10 last:border-b-0">
+      {/* Trigger */}
+      <button
+        onClick={onToggle}
+        className="w-full group cursor-pointer"
+        aria-expanded={isOpen}
+        aria-controls={`services-panel-${area.id}`}
+      >
+        <div className="flex items-center justify-between py-6 md:py-8 px-4 md:px-8 hover:bg-primary/5 transition-all duration-300">
+          <div className="flex items-center gap-4 md:gap-6">
+            {/* Number indicator */}
+            <span className="text-sm md:text-base font-mono text-primary/40 group-hover:text-primary transition-colors duration-300 tabular-nums">
+              0{index + 1}
+            </span>
+            {/* Icon */}
+            <div
+              className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center border transition-all duration-500 ${
+                isOpen
+                  ? "bg-primary/20 border-primary/40"
+                  : "bg-primary/5 border-primary/10 group-hover:bg-primary/10 group-hover:border-primary/30"
+              }`}
+            >
+              <IconComponent
+                className={`w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 ${
+                  isOpen ? "text-primary" : "text-primary/50 group-hover:text-primary"
+                }`}
+              />
+            </div>
+            {/* Title & subtitle */}
+            <div className="text-left">
+              <h3
+                className={`text-xl md:text-3xl lg:text-4xl font-bold tracking-tight transition-colors duration-300 ${
+                  isOpen ? "text-accent-gold" : "text-white group-hover:text-primary"
+                }`}
+                style={
+                  isOpen
+                    ? {
+                        background: "linear-gradient(to right, #D4AF37, #FFD700)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }
+                    : undefined
+                }
+              >
+                {area.title}
+              </h3>
+              <p className="text-xs md:text-sm text-gray-500 mt-1 hidden sm:block">
+                {area.subtitle}
+              </p>
+            </div>
+          </div>
+
+          {/* Chevron + counter */}
+          <div className="flex items-center gap-3 md:gap-4">
+            <span className="text-xs text-gray-600 font-medium hidden md:block">
+              {area.services.length} {area.services.length === 1 ? "serviço" : "serviços"}
+            </span>
+            <div
+              className={`w-10 h-10 md:w-12 md:h-12 rounded-full border flex items-center justify-center transition-all duration-500 ${
+                isOpen
+                  ? "bg-primary border-primary rotate-180"
+                  : "border-primary/20 group-hover:border-primary/50"
+              }`}
+            >
+              <ChevronDown
+                className={`w-5 h-5 transition-all duration-500 ${
+                  isOpen ? "text-black" : "text-primary/60 group-hover:text-primary"
+                }`}
+              />
+            </div>
+          </div>
+        </div>
+      </button>
+
+      {/* Expandable content */}
+      <div
+        id={`services-panel-${area.id}`}
+        role="region"
+        style={{ height }}
+        className="overflow-hidden transition-[height] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+      >
+        <div ref={contentRef}>
+          <div className="px-4 md:px-8 pb-8 md:pb-10">
+            {/* Divider */}
+            <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent mb-6 md:mb-8" />
+
+            {/* Services grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+              {area.services.map((service, i) => (
+                <div
+                  key={i}
+                  className="group/item bg-neutral-900/50 border border-primary/10 rounded-xl p-4 md:p-5 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+                  style={{
+                    animationDelay: `${i * 50}ms`,
+                  }}
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2 shrink-0 group-hover/item:bg-primary transition-colors" />
+                    <div className="space-y-1.5">
+                      <span className="text-sm md:text-base font-semibold text-gray-200 group-hover/item:text-white transition-colors leading-tight block">
+                        {service.name}
+                      </span>
+                      {service.details && (
+                        <p className="text-xs text-gray-500 leading-relaxed group-hover/item:text-gray-400 transition-colors">
+                          {service.details}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA at bottom */}
+            <div className="mt-6 md:mt-8 flex justify-center">
+              <a
+                href={`https://wa.me/5517992378821?text=${encodeURIComponent(
+                  `Olá Cleber! Vi o site da C&C Vida e Negócio e gostaria de saber mais sobre os serviços de ${area.title}.`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="btn-gold h-12 px-8 text-sm">
+                  Saiba mais sobre {area.title}
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ServicesSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleToggle = useCallback((index: number) => {
+    setOpenIndex((prev) => (prev === index ? null : index));
+  }, []);
+
+  return (
+    <section id="servicos" className="bg-black py-20 md:py-32">
+      <div className="container">
+        {/* Section header */}
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 space-y-4">
+          <div className="inline-block border border-primary/30 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold tracking-wide uppercase">
+            Nossas Soluções
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+            Áreas de <span className="text-accent-gold">Atuação</span>
+          </h2>
+          <p className="text-lg text-gray-400 leading-relaxed">
+            Oferecemos soluções completas em três grandes áreas, sempre com
+            atendimento consultivo e personalizado.
+          </p>
+        </div>
+
+        {/* Accordion */}
+        <div className="max-w-5xl mx-auto rounded-2xl border border-primary/15 bg-neutral-950/80 overflow-hidden shadow-2xl">
+          {servicesData.map((area, index) => (
+            <ServiceAccordionItem
+              key={area.id}
+              area={area}
+              isOpen={openIndex === index}
+              onToggle={() => handleToggle(index)}
+              index={index}
+            />
+          ))}
         </div>
       </div>
     </section>
