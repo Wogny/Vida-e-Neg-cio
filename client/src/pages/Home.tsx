@@ -33,6 +33,7 @@ export default function Home() {
       <Header />
       <main id="main-content">
         <HeroSection />
+        <StatsSection />
         <ApresentacaoSection />
         <ServicesSection />
         <DepoimentosSection />

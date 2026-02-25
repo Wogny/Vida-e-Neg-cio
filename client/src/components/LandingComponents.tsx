@@ -1,10 +1,65 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Star, Check, X, Shield, TrendingUp, Scale } from "lucide-react";
+import { ChevronDown, Star, Check, X, Shield, TrendingUp, Scale, Menu, X as XIcon } from "lucide-react";
 import { useState, useRef, useCallback, useEffect } from "react";
+
+/* ─── Constants ─── */
+const WHATSAPP_NUMBER = "5517992378821";
+const WHATSAPP_DEFAULT_MSG = "Olá Cleber! Vi o site da C&C Vida e Negócio e gostaria de conhecer melhor as soluções de proteção que vocês oferecem.";
+const whatsappUrl = (msg = WHATSAPP_DEFAULT_MSG) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+/* ─── Scroll Animation Hook ─── */
+function useScrollAnimation() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, isVisible };
+}
+
+/* ─── Nav Links ─── */
+const NAV_LINKS = [
+  { href: "#hero", label: "Início" },
+  { href: "#apresentacao", label: "Sobre" },
+  { href: "#servicos", label: "Serviços" },
+  { href: "#comparativo", label: "Soluções" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#formulario", label: "Contato" },
+];
 
 /* Header Component */
 export function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth >= 768) setMobileOpen(false); };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  // Prevent body scroll when mobile menu open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   return (
     <>
       {/* Skip Link para acessibilidade */}
@@ -31,13 +86,62 @@ export function Header() {
               C&C VIDA E NEGÓCIO
             </span>
           </a>
+
+          {/* Desktop nav */}
           <nav className="hidden md:flex gap-6 text-sm font-medium" role="navigation" aria-label="Navegação principal">
-            <a href="#hero" className="hover:text-primary transition focus:outline-none focus:text-primary">Início</a>
-            <a href="#apresentacao" className="hover:text-primary transition focus:outline-none focus:text-primary">Sobre</a>
-            <a href="#servicos" className="hover:text-primary transition focus:outline-none focus:text-primary">Serviços</a>
-            <a href="#comparativo" className="hover:text-primary transition focus:outline-none focus:text-primary">Soluções</a>
-            <a href="#faq" className="hover:text-primary transition focus:outline-none focus:text-primary">FAQ</a>
-            <a href="#formulario" className="hover:text-primary transition focus:outline-none focus:text-primary">Contato</a>
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="hover:text-primary transition focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-black rounded px-1"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden p-2 rounded-lg border border-primary/20 hover:bg-primary/10 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <XIcon className="w-6 h-6 text-primary" /> : <Menu className="w-6 h-6 text-primary" />}
+          </button>
+        </div>
+
+        {/* Mobile menu overlay */}
+        <div
+          className={`md:hidden fixed inset-0 top-[73px] bg-black/95 backdrop-blur-xl transition-all duration-300 ${
+            mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          <nav className="flex flex-col items-center justify-center gap-2 pt-8 px-6" role="navigation" aria-label="Navegação mobile">
+            {NAV_LINKS.map((link, i) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className={`w-full text-center text-lg font-semibold py-4 border-b border-primary/10 hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 rounded ${
+                  mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+                style={{ transitionDelay: mobileOpen ? `${i * 60}ms` : "0ms" }}
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href={whatsappUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`mt-6 w-full transition-all duration-300 ${mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+              style={{ transitionDelay: mobileOpen ? `${NAV_LINKS.length * 60}ms` : "0ms" }}
+            >
+              <Button className="btn-gold w-full h-14 text-base">
+                Fale no WhatsApp
+              </Button>
+            </a>
           </nav>
         </div>
       </header>
@@ -66,7 +170,7 @@ export function HeroSection() {
               Especialistas em seguros personalizados. Garantimos a tranquilidade da sua família e a continuidade do seu empreendimento com soluções de elite.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="https://wa.me/5517992378821?text=Ol%C3%A1%20Cleber!%20Vi%20o%20site%20da%20C%26C%20Vida%20e%20Neg%C3%B3cio%20e%20gostaria%20de%20conhecer%20melhor%20as%20solu%C3%A7%C3%B5es%20de%20prote%C3%A7%C3%A3o%20que%20voc%C3%AAs%20oferecem." target="_blank" rel="noopener noreferrer">
+              <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
                 <Button className="btn-gold w-full sm:w-auto text-base h-14 px-8">
                   Fale Conosco no WhatsApp
                 </Button>
@@ -107,7 +211,10 @@ export function HeroSection() {
                   src="/assets/familia-cleber.png"
                   alt="Cleber Carrijo, fundador da C&C Vida e Negócio, com sua família - especialistas em seguros de vida e empresariais em Catanduva SP"
                   className="w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700"
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
+                  width="600"
+                  height="750"
                 />
               </picture>
               {/* Overlay gradiente para elegância */}
@@ -158,8 +265,10 @@ export function ApresentacaoSection() {
     { title: "Parceria Global", description: "Conexão direta com as maiores e mais sólidas seguradoras do mundo." }
   ];
 
+  const anim = useScrollAnimation();
+
   return (
-    <section id="apresentacao" className="section-light py-20 md:py-32">
+    <section id="apresentacao" ref={anim.ref} className={`section-light py-20 md:py-32 transition-all duration-700 ${anim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <h2 className="text-3xl md:text-5xl font-bold leading-tight">
@@ -212,8 +321,10 @@ export function DepoimentosSection() {
     }
   ];
 
+  const depAnim = useScrollAnimation();
+
   return (
-    <section id="depoimentos" className="bg-black py-20 md:py-32">
+    <section id="depoimentos" ref={depAnim.ref} className={`bg-black py-20 md:py-32 transition-all duration-700 ${depAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <h2 className="text-3xl md:text-5xl font-bold leading-tight">
@@ -254,8 +365,10 @@ export function ComparativoSection() {
     { name: "Proteção de Capital Social", cc: true, others: false },
   ];
 
+  const compAnim = useScrollAnimation();
+
   return (
-    <section id="comparativo" className="section-light py-20 md:py-32">
+    <section id="comparativo" ref={compAnim.ref} className={`section-light py-20 md:py-32 transition-all duration-700 ${compAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <h2 className="text-3xl md:text-5xl font-bold leading-tight">
@@ -334,11 +447,16 @@ export function FAQSection() {
                 <span className="font-bold text-white">{faq.q}</span>
                 <ChevronDown className={`w-5 h-5 text-primary transition-transform ${openIdx === i ? 'rotate-180' : ''}`} />
               </button>
-              {openIdx === i && (
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openIdx === i ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+                }`}
+                aria-hidden={openIdx !== i}
+              >
                 <div className="p-6 bg-neutral-900/10 text-primary/80 leading-relaxed border-t border-primary/5">
                   {faq.a}
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
@@ -349,6 +467,19 @@ export function FAQSection() {
 
 /* Form Section */
 export function FormSection() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [insuranceType, setInsuranceType] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const message = `Olá Cleber! Me chamo ${name}.
+Meu WhatsApp: ${phone}.
+Interesse em: ${insuranceType || "Consultoria Personalizada"}.
+Vi o site da C&C Vida e Negócio e gostaria de uma consultoria.`;
+    window.open(whatsappUrl(message), "_blank");
+  };
+
   return (
     <section id="formulario" className="section-light py-20 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full translate-y-1/2 pointer-events-none" />
@@ -384,18 +515,41 @@ export function FormSection() {
           </div>
           
           <div className="p-8 md:p-12 md:w-1/2">
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-primary/60">Nome Completo</label>
-                <input type="text" className="w-full bg-black/50 border border-primary/20 rounded-xl p-4 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Seu nome" />
+                <label htmlFor="form-name" className="text-xs font-bold uppercase tracking-widest text-primary/60">Nome Completo</label>
+                <input
+                  id="form-name"
+                  type="text"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full bg-black/50 border border-primary/20 rounded-xl p-4 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition-colors"
+                  placeholder="Seu nome"
+                />
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-primary/60">WhatsApp</label>
-                <input type="tel" className="w-full bg-black/50 border border-primary/20 rounded-xl p-4 text-white focus:border-primary focus:outline-none transition-colors" placeholder="(00) 00000-0000" />
+                <label htmlFor="form-phone" className="text-xs font-bold uppercase tracking-widest text-primary/60">WhatsApp</label>
+                <input
+                  id="form-phone"
+                  type="tel"
+                  required
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full bg-black/50 border border-primary/20 rounded-xl p-4 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition-colors"
+                  placeholder="(00) 00000-0000"
+                />
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-primary/60">Tipo de Seguro</label>
-                <select className="w-full bg-black/50 border border-primary/20 rounded-xl p-4 text-white focus:border-primary focus:outline-none transition-colors appearance-none scrollbar-thin scrollbar-thumb-primary">
+                <label htmlFor="form-insurance" className="text-xs font-bold uppercase tracking-widest text-primary/60">Tipo de Seguro</label>
+                <select
+                  id="form-insurance"
+                  value={insuranceType}
+                  onChange={(e) => setInsuranceType(e.target.value)}
+                  aria-label="Selecione o tipo de seguro desejado"
+                  className="w-full bg-black/50 border border-primary/20 rounded-xl p-4 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition-colors appearance-none scrollbar-thin scrollbar-thumb-primary"
+                >
+                  <option value="">Selecione...</option>
                   <optgroup label="Seguros Individuais">
                     <option>Seguro Vida Inteira (Vitalício)</option>
                     <option>Seguro Vida Inteira Idades Especiais</option>
@@ -430,10 +584,26 @@ export function FormSection() {
                     <option>Seguro de Carga e Logística</option>
                     <option>Seguro Patrimonial Empresarial</option>
                   </optgroup>
-                  <option>Outros / Consultoria Personalizada</option>
+                  <optgroup label="Finanças">
+                    <option>Limpa Nome / Restrições</option>
+                    <option>Consórcio</option>
+                    <option>Empréstimo / Financiamento</option>
+                    <option>Previdência</option>
+                    <option>Financiamento Imobiliário</option>
+                  </optgroup>
+                  <optgroup label="Tributário">
+                    <option>Revisão Tributária</option>
+                    <option>Holding Patrimonial</option>
+                  </optgroup>
+                  <option value="Consultoria Personalizada">Outros / Consultoria Personalizada</option>
                 </select>
               </div>
-              <Button className="btn-gold w-full h-14 text-base mt-4">Solicitar Contato</Button>
+              <Button type="submit" className="btn-gold w-full h-14 text-base mt-4">
+                Enviar via WhatsApp
+              </Button>
+              <p className="text-xs text-center text-primary/40 mt-2">
+                Ao enviar, você será redirecionado para o WhatsApp.
+              </p>
             </form>
           </div>
         </div>
@@ -664,9 +834,7 @@ function ServiceAccordionItem({
             {/* CTA at bottom */}
             <div className="mt-6 md:mt-8 flex justify-center">
               <a
-                href={`https://wa.me/5517992378821?text=${encodeURIComponent(
-                  `Olá Cleber! Vi o site da C&C Vida e Negócio e gostaria de saber mais sobre os serviços de ${area.title}.`
-                )}`}
+                href={whatsappUrl(`Olá Cleber! Vi o site da C&C Vida e Negócio e gostaria de saber mais sobre os serviços de ${area.title}.`)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -741,7 +909,7 @@ export function Footer() {
             <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Contato</h4>
             <ul className="space-y-4 text-sm">
               <li>
-                <a href="https://wa.me/5517992378821?text=Ol%C3%A1%20Cleber!%20Vi%20o%20site%20da%20C%26C%20Vida%20e%20Neg%C3%B3cio%20e%20gostaria%20de%20conhecer%20melhor%20as%20solu%C3%A7%C3%B5es%20de%20prote%C3%A7%C3%A3o%20que%20voc%C3%AAs%20oferecem." target="_blank" rel="noopener noreferrer" className="text-primary/70 hover:text-primary transition flex items-center gap-2">
+                <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="text-primary/70 hover:text-primary transition flex items-center gap-2">
                   WhatsApp: (17) 99237-8821
                 </a>
               </li>
@@ -752,17 +920,17 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Legal</h4>
             <div className="space-y-4">
-              <p className="text-xs text-primary/40">
+              <p className="text-xs text-primary/60">
                 CNPJ: 51.820.039/0001-96
               </p>
-              <p className="text-xs text-primary/40 leading-relaxed">
+              <p className="text-xs text-primary/60 leading-relaxed">
                 Corretora de seguros autorizada pela SUSEP. Proteção garantida pelas maiores seguradoras.
               </p>
             </div>
           </div>
         </div>
         <div className="border-t border-primary/5 pt-8 text-center">
-          <p className="text-primary/40 text-xs font-medium tracking-widest uppercase">
+          <p className="text-primary/60 text-xs font-medium tracking-widest uppercase">
             &copy; 2026 C&C Vida e Negócio. Excelência em Seguros.
           </p>
         </div>
@@ -775,7 +943,7 @@ export function Footer() {
 export function FloatingWhatsAppButton() {
   return (
     <a
-      href="https://wa.me/5517992378821?text=Ola%20Cleber!%20Vi%20o%20site%20da%20C%26C%20Vida%20e%20Negocio%20e%20gostaria%20de%20conhecer%20melhor%20as%20solucoes%20de%20protecao%20que%20voces%20oferecem."
+      href={whatsappUrl()}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 bg-primary hover:bg-primary/90 text-black rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 flex items-center gap-3 group animate-pulse-gold"
