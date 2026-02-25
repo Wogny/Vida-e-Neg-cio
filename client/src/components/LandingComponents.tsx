@@ -113,7 +113,7 @@ export function Header() {
 
         {/* Mobile menu overlay */}
         <div
-          className={`md:hidden fixed inset-0 top-[73px] bg-black/95 backdrop-blur-xl transition-all duration-300 ${
+          className={`md:hidden fixed inset-0 top-[73px] bg-black backdrop-blur-none transition-all duration-300 z-50 ${
             mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
         >
