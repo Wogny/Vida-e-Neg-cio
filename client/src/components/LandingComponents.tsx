@@ -82,7 +82,7 @@ export function Header() {
                 height="40"
               />
             </picture>
-            <span className="text-xl font-bold text-primary tracking-tighter">
+            <span className="text-xl font-bold text-accent-gold tracking-tighter">
               C&C VIDA E NEGÓCIO
             </span>
           </a>
@@ -929,7 +929,7 @@ export function Footer() {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2 space-y-6">
-            <div className="text-2xl font-bold text-primary tracking-tighter">
+            <div className="text-2xl font-bold text-accent-gold tracking-tighter">
               C&C VIDA E NEGÓCIO
             </div>
             <p className="text-primary/60 max-w-sm">

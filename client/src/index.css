@@ -229,12 +229,12 @@ html {
 /* Select dropdown gold styling */
 .select-gold {
   background-color: #000000 !important;
-  color: #D4AF37 !important;
+  color: #FFD700 !important;
 }
 
 .select-gold option {
   background-color: #000000;
-  color: #D4AF37;
+  color: #FFD700;
   padding: 8px 12px;
 }
 
@@ -247,7 +247,7 @@ html {
 
 .select-gold optgroup {
   background-color: #000000;
-  color: #D4AF37;
+  color: #FFD700;
   font-weight: 700;
 }
 
