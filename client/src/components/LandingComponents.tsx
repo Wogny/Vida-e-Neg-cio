@@ -165,7 +165,8 @@ export function HeroSection() {
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
               Proteja o que mais importa: <br />
-              <span className="text-accent-gold font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>Sua Vida, Sua Familia e Seu Negócio</span>
+              <span className="text-accent-gold font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>Sua Vida, Sua Familia e 
+                Seu Negócio</span>
             </h1>
             <p className="text-lg text-white/80 leading-relaxed max-w-xl">
               Especialistas em seguros personalizados. Garantimos a tranquilidade da sua família e a continuidade do seu empreendimento com soluções de elite.
