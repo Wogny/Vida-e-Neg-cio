@@ -554,19 +554,17 @@ Vi o site da C&C Vida e Negócio e gostaria de uma consultoria.`;
                   <optgroup label="Seguros Individuais">
                     <option>Seguro Vida Inteira (Vitalício)</option>
                     <option>Seguro Vida Inteira Idades Especiais</option>
-                    <option>Seguro Vida Inteira Único</option>
-                    <option>Seguro Vida Inteira Mais</option>
-                    <option>Seguro Prudential Vida & Saúde</option>
                     <option>Seguro de Vida Temporário</option>
-                    <option>Seguro Temporário Decrescente</option>
-                    <option>Seguro Temporário Preferencial</option>
                     <option>Seguro Renda Familiar</option>
                     <option>Seguro Doenças Graves</option>
                     <option>Seguro Invalidez Acidental</option>
                     <option>Seguro Morte Acidental</option>
-                    <option>Seguro Assistência Funeral</option>
                     <option>Seguro Renda Hospitalar</option>
                     <option>Seguro Cirurgia e Cirurgia Ampliada</option>
+                    <option>Renda por Afastamento/Doença ou Acidente</option>
+                    <option>Invalidez por Doença</option>
+                    <option>Invalidez Majorada</option>
+                    <option>Doenças Graves Infantil</option>
                   </optgroup>
                   <optgroup label="Seguros Empresariais">
                     <option>Seguro de Vida em Grupo (Corporate)</option>
