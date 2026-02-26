@@ -572,53 +572,53 @@ Vi o site da C&C Vida e Negócio e gostaria de uma consultoria.`;
                   value={insuranceType}
                   onChange={(e) => setInsuranceType(e.target.value)}
                   aria-label="Selecione o tipo de seguro desejado"
-                  className="w-full bg-black/50 border border-primary/20 rounded-xl p-4 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition-colors appearance-none scrollbar-thin scrollbar-thumb-primary"
+                  className="w-full bg-black border border-primary/20 rounded-xl p-4 text-primary focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition-colors appearance-none scrollbar-thin scrollbar-thumb-primary select-gold"
                 >
-                  <option value="">Selecione...</option>
-                  <optgroup label="Seguros Individuais">
-                    <option>Seguro Vida Inteira (Vitalício)</option>
-                    <option>Seguro Vida Inteira Idades Especiais</option>
-                    <option>Seguro de Vida Temporário</option>
-                    <option>Seguro Renda Familiar</option>
-                    <option>Seguro Doenças Graves</option>
-                    <option>Seguro Invalidez Acidental</option>
-                    <option>Seguro Morte Acidental</option>
-                    <option>Seguro Renda Hospitalar</option>
-                    <option>Seguro Cirurgia e Cirurgia Ampliada</option>
-                    <option>Renda por Afastamento/Doença ou Acidente</option>
-                    <option>Invalidez por Doença</option>
-                    <option>Invalidez Majorada</option>
-                    <option>Doenças Graves Infantil</option>
+                  <option value="" style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Selecione...</option>
+                  <optgroup label="Seguros Individuais" style={{ backgroundColor: '#000000', color: '#D4AF37' }}>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Vida Inteira (Vitalício)</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Vida Inteira Idades Especiais</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro de Vida Temporário</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Renda Familiar</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Doenças Graves</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Invalidez Acidental</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Morte Acidental</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Renda Hospitalar</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Cirurgia e Cirurgia Ampliada</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Renda por Afastamento/Doença ou Acidente</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Invalidez por Doença</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Invalidez Majorada</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Doenças Graves Infantil</option>
                   </optgroup>
-                  <optgroup label="Seguros Empresariais">
-                    <option>Seguro de Vida em Grupo (Corporate)</option>
-                    <option>Seguro de Vida em Grupo Express (PME)</option>
-                    <option>Seguro Capital Global (PME)</option>
-                    <option>Seguro Sucessão Empresarial</option>
-                    <option>Seguro Acidentes Pessoais Coletivo</option>
-                    <option>Seguro Acidentes Pessoais Eventos</option>
-                    <option>Seguro Acidentes Pessoais Passageiros</option>
-                    <option>Seguro Viagem Corporativo</option>
-                    <option>Seguro Prestamista</option>
-                    <option>Seguro Doenças Tropicais</option>
-                    <option>Seguro Responsabilidade Civil Profissional (E&O)</option>
-                    <option>Seguro Responsabilidade Civil Diretores (D&O)</option>
-                    <option>Seguro Garantia Contratual</option>
-                    <option>Seguro de Carga e Logística</option>
-                    <option>Seguro Patrimonial Empresarial</option>
+                  <optgroup label="Seguros Empresariais" style={{ backgroundColor: '#000000', color: '#D4AF37' }}>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro de Vida em Grupo (Corporate)</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro de Vida em Grupo Express (PME)</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Capital Global (PME)</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Sucessão Empresarial</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Acidentes Pessoais Coletivo</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Acidentes Pessoais Eventos</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Acidentes Pessoais Passageiros</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Viagem Corporativo</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Prestamista</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Doenças Tropicais</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Responsabilidade Civil Profissional (E&amp;O)</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Responsabilidade Civil Diretores (D&amp;O)</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Garantia Contratual</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro de Carga e Logística</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Seguro Patrimonial Empresarial</option>
                   </optgroup>
-                  <optgroup label="Finanças">
-                    <option>Limpa Nome / Restrições</option>
-                    <option>Consórcio</option>
-                    <option>Empréstimo / Financiamento</option>
-                    <option>Previdência</option>
-                    <option>Financiamento Imobiliário</option>
+                  <optgroup label="Finanças" style={{ backgroundColor: '#000000', color: '#D4AF37' }}>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Limpa Nome / Restrições</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Consórcio</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Empréstimo / Financiamento</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Previdência</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Financiamento Imobiliário</option>
                   </optgroup>
-                  <optgroup label="Tributário">
-                    <option>Revisão Tributária</option>
-                    <option>Holding Patrimonial</option>
+                  <optgroup label="Tributário" style={{ backgroundColor: '#000000', color: '#D4AF37' }}>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Revisão Tributária</option>
+                    <option style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Holding Patrimonial</option>
                   </optgroup>
-                  <option value="Consultoria Personalizada">Outros / Consultoria Personalizada</option>
+                  <option value="Consultoria Personalizada" style={{ backgroundColor: '#000000', color: '#D4AF37' }}>Outros / Consultoria Personalizada</option>
                 </select>
               </div>
               <Button type="submit" className="btn-gold w-full h-14 text-base mt-4">

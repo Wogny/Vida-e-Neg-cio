@@ -226,6 +226,31 @@ html {
   background: rgba(212, 175, 55, 0.5);
 }
 
+/* Select dropdown gold styling */
+.select-gold {
+  background-color: #000000 !important;
+  color: #D4AF37 !important;
+}
+
+.select-gold option {
+  background-color: #000000;
+  color: #D4AF37;
+  padding: 8px 12px;
+}
+
+.select-gold option:hover,
+.select-gold option:focus,
+.select-gold option:checked {
+  background-color: #1a1a00;
+  color: #FFD700;
+}
+
+.select-gold optgroup {
+  background-color: #000000;
+  color: #D4AF37;
+  font-weight: 700;
+}
+
 /* Animação de entrada para elementos visíveis */
 .animate-on-scroll {
   opacity: 0;
