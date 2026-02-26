@@ -361,7 +361,7 @@ export function ComparativoSection() {
     { name: "Consultoria Personalizada", cc: true, others: false },
     { name: "Análise de Riscos Detalhada", cc: true, others: false },
     { name: "Suporte em Sinistros 24h", cc: true, others: "Limitado" },
-    { name: "Acesso às Melhores Seguradoras", cc: true, others: true },
+    { name: "Acesso às Melhores Seguradoras", cc: true, others: false },
     { name: "Estratégias de Sucessão Familiar", cc: true, others: false },
     { name: "Proteção de Capital Social", cc: true, others: false },
   ];
