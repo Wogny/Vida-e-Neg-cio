@@ -133,10 +133,7 @@
   }
 
   .text-accent-gold {
-    @apply text-primary;
-    background: linear-gradient(to right, #D4AF37, #FFD700);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #D4AF37;
   }
 
   .font-poppins {
@@ -229,12 +226,12 @@ html {
 /* Select dropdown gold styling */
 .select-gold {
   background-color: #000000 !important;
-  color: #FFD700 !important;
+  color: #D4AF37 !important;
 }
 
 .select-gold option {
   background-color: #000000;
-  color: #FFD700;
+  color: #D4AF37;
   padding: 8px 12px;
 }
 
@@ -242,12 +239,12 @@ html {
 .select-gold option:focus,
 .select-gold option:checked {
   background-color: #1a1a00;
-  color: #FFD700;
+  color: #D4AF37;
 }
 
 .select-gold optgroup {
   background-color: #000000;
-  color: #FFD700;
+  color: #D4AF37;
   font-weight: 700;
 }
 

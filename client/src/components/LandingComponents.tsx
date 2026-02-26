@@ -775,15 +775,6 @@ function ServiceAccordionItem({
                 className={`text-xl md:text-3xl lg:text-4xl font-bold tracking-tight transition-colors duration-300 ${
                   isOpen ? "text-accent-gold" : "text-white group-hover:text-primary"
                 }`}
-                style={
-                  isOpen
-                    ? {
-                        background: "linear-gradient(to right, #D4AF37, #FFD700)",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                      }
-                    : undefined
-                }
               >
                 {area.title}
               </h3>
