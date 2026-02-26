@@ -294,6 +294,14 @@ export function ApresentacaoSection() {
             </div>
           ))}
         </div>
+
+        <div className="text-center mt-12">
+          <a href="#formulario">
+            <Button variant="outline" className="w-full sm:w-auto text-base h-14 px-8 border-primary/50 text-primary hover:bg-primary/10">
+              Solicite uma Cotação
+            </Button>
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -350,6 +358,14 @@ export function DepoimentosSection() {
             </Card>
           ))}
         </div>
+
+        <div className="text-center mt-12">
+          <a href="#formulario">
+            <Button variant="outline" className="w-full sm:w-auto text-base h-14 px-8 border-primary/50 text-primary hover:bg-primary/10">
+              Solicite uma Cotação
+            </Button>
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -401,6 +417,14 @@ export function ComparativoSection() {
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div className="text-center mt-12">
+          <a href="#formulario">
+            <Button variant="outline" className="w-full sm:w-auto text-base h-14 px-8 border-primary/50 text-primary hover:bg-primary/10">
+              Solicite uma Cotação
+            </Button>
+          </a>
         </div>
       </div>
     </section>
@@ -884,6 +908,14 @@ export function ServicesSection() {
               index={index}
             />
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <a href="#formulario">
+            <Button variant="outline" className="w-full sm:w-auto text-base h-14 px-8 border-primary/50 text-primary hover:bg-primary/10">
+              Solicite uma Cotação
+            </Button>
+          </a>
         </div>
       </div>
     </section>
