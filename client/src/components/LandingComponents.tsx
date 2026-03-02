@@ -396,7 +396,8 @@ export function ComparativoSection() {
         </div>
 
         <div className="max-w-4xl mx-auto overflow-hidden rounded-2xl border border-primary/20 shadow-2xl">
-          <table className="w-full text-left border-collapse">
+          <div className="w-full overflow-x-auto">
+          <table className="w-full text-left border-collapse min-w-[600px]">
             <thead>
               <tr className="bg-primary/10">
                 <th className="p-6 text-primary font-bold uppercase tracking-widest text-xs">Diferenciais</th>
@@ -418,6 +419,7 @@ export function ComparativoSection() {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
 
         <div className="text-center mt-12">
